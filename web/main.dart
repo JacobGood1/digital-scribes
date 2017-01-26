@@ -12,7 +12,7 @@ void main() {
   renderLoop.addStage(stage);
 
   var resourceManager = new ResourceManager()
-    ..addBitmapData('kickstarter_advert', 'resources/udemy_ue4_logo_2_update.png')
+    //..addBitmapData('kickstarter_advert', 'resources/udemy_ue4_logo_2_update.png')
     ..addBitmapData('button_up','resources/button_place_holder.png')
     ..addBitmapData('button_down', 'resources/button_place_holder_down.png');
 
@@ -30,7 +30,7 @@ void main() {
     print(button.width);
 
     stage.addChild(button);
-    stage.addChild(new Bitmap(resourceManager.getBitmapData('kickstarter_advert')));
+    //stage.addChild(new Bitmap(resourceManager.getBitmapData('kickstarter_advert')));
 
   });
 
