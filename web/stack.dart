@@ -1,35 +1,34 @@
-import 'block.dart';
 import 'package:stagexl/stagexl.dart';
 
-class Block {
-  Block(num width, num height){
-    //this.width = width;
-    //this.height = height;
-  }
-  List<Bitmap> displayObjects = [];
-  get position => position;
-  set position (List<num> position) => position;
-  get x => position[0]; set x (num x) => x;
-  get y => position[1]; set y (num y) => y;
-  get width => width; set width (num width) => width;
-  get height => height; set height (num height) => height;
-}
-
 class Stack {
-  List<Block> blocks;
-  append(Block block){
-    blocks.add(block);
-  }
-  stackBlocks(){
-    for (var i = 1; i < blocks.length; i++) {
-      Block prevBlock = blocks[i - 1];
-      Block currentBlock = blocks[i];
-      currentBlock.y = prevBlock.y + prevBlock.height;
+  //Stage stage;
+  List<DisplayObjectContainer> containers;
 
-      currentBlock.displayObjects.forEach((Bitmap displayObj) => //{
-        print(displayObj.height));
-        //displayObj.x = 10;//displayObj.x += currentBlock.x;
-      //});
+  Stack (List<DisplayObjectContainer> containers) {
+    //this.stage = stage;
+    this.containers = containers;
+  }
+
+  append(DisplayObjectContainer container){
+    this.containers.add(container);
+  }
+  stackContainers(){
+    for (var i = 1; i < containers.length; i++) {
+      DisplayObjectContainer prevContainer = containers[i - 1];
+      DisplayObjectContainer currentContainer = containers[i];
+      //clear out current y value of currentContainer
+      currentContainer.y = 0.0;
+      //offset currentContainer's y value
+      currentContainer.y = prevContainer.y + prevContainer.height;
     }
+  }
+  addToStage(Stage stage){
+    containers.forEach((DisplayObjectContainer container) => stage.addChild(container));
+  }
+
+  int stackHeight () {
+    int height = 0;
+    containers.forEach((DisplayObjectContainer container) => height += container.height);
+    return height;
   }
 }

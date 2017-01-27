@@ -1,15 +1,42 @@
 import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
+import 'stack.dart';
+import 'test_displayObjectContainer.dart';
+
+/*
+* CHECK OUT `CanvasElement`
+*/
 
 void main() {
 
   // setup the Stage and RenderLoop
-  var canvas = html.querySelector('#stage');
+  //html.Element canvas = html.querySelector('#stage');
+  html.BodyElement body = html.querySelector('#body');
+
   var innerWidth = html.window.innerWidth;
   var innerHeight = html.window.innerHeight;
-  var stage = new Stage(canvas); //, width: innerWidth, height: innerHeight //inputting dimensions here requires resizing the stage.
+
+  var stack = new Stack([
+    new Painting(),
+    new Painting(),
+    new Painting(),
+    new Painting(),
+    new Painting(),
+    new Painting()/**/
+  ])..stackContainers();//..addToStage(stage);
+  var stackHeight = stack.stackHeight();
+  html.CanvasElement canvas = new html.CanvasElement(width: 1600, height: stackHeight);
+  body.append(canvas);
+  var stage = new Stage(canvas, height: stackHeight) //width: innerWidth, //stackHeight
+  ..align = StageAlign.TOP_LEFT
+  ..scaleMode = StageScaleMode.NO_SCALE
+  //..scaleMode = StageScaleMode.NO_BORDER
+  //..scaleMode = StageScaleMode.SHOW_ALL
+  ;
   var renderLoop = new RenderLoop();
   renderLoop.addStage(stage);
+
+  stack.addToStage(stage);
 
   var resourceManager = new ResourceManager()
     //..addBitmapData('kickstarter_advert', 'resources/udemy_ue4_logo_2_update.png')
@@ -28,6 +55,8 @@ void main() {
 
     button.x = innerWidth / 2 - button.width / 2;
     print(button.width);
+
+
 
     stage.addChild(button);
     //stage.addChild(new Bitmap(resourceManager.getBitmapData('kickstarter_advert')));
