@@ -2,17 +2,24 @@ import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
 import 'stack.dart';
 import 'test_displayObjectContainer.dart';
-
+void _onResize (Event e) {
+  print('resize');
+}
 void main() {
   // setup the Stage and RenderLoop
   //html.Element canvas = html.querySelector('#stage');
+
   var innerWidth = html.window.innerWidth;
-  var innerHeight = html.window.innerHeight;
 
   //height will be determined later by adding new elements to the stage. -------v
   html.CanvasElement canvas = new html.CanvasElement(width: innerWidth, height: 0);
   canvas.id = '#canvas';
   html.BodyElement body = html.querySelector('#body');
+
+  //listen for when the window is resized, this set canvas width to the new size.
+  html.window.onResize.listen((event){
+    canvas.width = html.window.innerWidth;
+  });
 
   body.append(canvas);
 
@@ -24,11 +31,11 @@ void main() {
   //..scaleMode = StageScaleMode.SHOW_ALL
   ;
 
-  new Painting(canvas, stage);
-  new Painting(canvas, stage);
-  new Painting(canvas, stage);
-  new Painting(canvas, stage);
-  new Painting(canvas, stage);
+  new Painting().addToStage(canvas, stage);
+  new Painting().addToStage(canvas, stage);
+  new Painting().addToStage(canvas, stage);
+  new Painting().addToStage(canvas, stage);
+  new Painting().addToStage(canvas, stage);
 
   var renderLoop = new RenderLoop();
   renderLoop.addStage(stage);
@@ -51,15 +58,15 @@ void main() {
     button.x = innerWidth / 2 - button.width / 2;
 
 
-    stage.addChild(button);
+    //stage.addChild(button);
     //stage.addChild(new Bitmap(resourceManager.getBitmapData('kickstarter_advert')));
 
   });
 
-  // draw a red circle
+  /* draw a red circle
   var shape = new Shape();
   shape.graphics.circle(100, 100, 60);
   shape.graphics.fillColor(Color.Red);
-  //stage.addChild(shape);
-  //stage.addChild(button);
+  stage.addChild(shape);
+  stage.addChild(button);*/
 }
