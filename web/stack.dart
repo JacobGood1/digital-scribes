@@ -28,7 +28,7 @@ class Stack {
 
   int stackHeight () {
     int height = 0;
-    containers.forEach((DisplayObjectContainer container) => height += container.height);
+    containers.forEach((DisplayObjectContainer container) => height += container.height.toInt());
     return height;
   }
 }

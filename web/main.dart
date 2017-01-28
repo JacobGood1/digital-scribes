@@ -3,40 +3,32 @@ import 'package:stagexl/stagexl.dart';
 import 'stack.dart';
 import 'test_displayObjectContainer.dart';
 
-/*
-* CHECK OUT `CanvasElement`
-*/
-
 void main() {
-
   // setup the Stage and RenderLoop
   //html.Element canvas = html.querySelector('#stage');
-  html.BodyElement body = html.querySelector('#body');
-
   var innerWidth = html.window.innerWidth;
   var innerHeight = html.window.innerHeight;
 
-  var stack = new Stack([
-    new Painting(),
-    new Painting(),
-    new Painting(),
-    new Painting(),
-    new Painting(),
-    new Painting()/**/
-  ])..stackContainers();//..addToStage(stage);
-  var stackHeight = stack.stackHeight();
-  html.CanvasElement canvas = new html.CanvasElement(width: 1600, height: stackHeight);
+  //height will be determined later by adding new elements to the stage. -------v
+  html.CanvasElement canvas = new html.CanvasElement(width: innerWidth, height: 0);
+  canvas.id = '#canvas';
+  html.BodyElement body = html.querySelector('#body');
+
   body.append(canvas);
-  var stage = new Stage(canvas, height: stackHeight) //width: innerWidth, //stackHeight
+
+  var stage = new Stage(canvas) //width: innerWidth, //stackHeight
   ..align = StageAlign.TOP_LEFT
-  ..scaleMode = StageScaleMode.NO_SCALE
+  //..scaleMode = StageScaleMode.NO_SCALE
+  //..scaleMode = StageScaleMode.EXACT_FIT
   //..scaleMode = StageScaleMode.NO_BORDER
   //..scaleMode = StageScaleMode.SHOW_ALL
   ;
+
+  new Painting(canvas, stage);
+  new Painting(canvas, stage);
+
   var renderLoop = new RenderLoop();
   renderLoop.addStage(stage);
-
-  stack.addToStage(stage);
 
   var resourceManager = new ResourceManager()
     //..addBitmapData('kickstarter_advert', 'resources/udemy_ue4_logo_2_update.png')
@@ -54,8 +46,6 @@ void main() {
     );
 
     button.x = innerWidth / 2 - button.width / 2;
-    print(button.width);
-
 
 
     stage.addChild(button);
