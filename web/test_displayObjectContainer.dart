@@ -21,12 +21,15 @@ class Painting extends DisplayObjectContainer {
     }
 
     //add to stage
-    canvas.height += height;
+    //canvas.height += height;
     var yOffset = 0;
     stage.children.forEach((DisplayObjectContainer container) => yOffset += (container.height * container.scaleY));
     this.scaleX = (canvas.width / width);
     this.scaleY *= scaleX;
     this.y += yOffset;
+
     stage.addChild(this);
+    print(height + scaleY);
+    canvas.height += (height * scaleY).toInt();
   }
 }

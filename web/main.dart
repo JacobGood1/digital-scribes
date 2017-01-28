@@ -26,6 +26,9 @@ void main() {
 
   new Painting(canvas, stage);
   new Painting(canvas, stage);
+  new Painting(canvas, stage);
+  new Painting(canvas, stage);
+  new Painting(canvas, stage);
 
   var renderLoop = new RenderLoop();
   renderLoop.addStage(stage);
