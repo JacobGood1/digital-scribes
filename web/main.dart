@@ -2,24 +2,21 @@ import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
 import 'stack.dart';
 import 'test_displayObjectContainer.dart';
-void _onResize (Event e) {
-  print('resize');
-}
+
 void main() {
   // setup the Stage and RenderLoop
   //html.Element canvas = html.querySelector('#stage');
 
   var innerWidth = html.window.innerWidth;
 
+  //used for when the website is rescaled.
+  var canvasHeight = 0.0;
+  var canvasWidth = innerWidth;
+
   //height will be determined later by adding new elements to the stage. -------v
   html.CanvasElement canvas = new html.CanvasElement(width: innerWidth, height: 0);
   canvas.id = '#canvas';
   html.BodyElement body = html.querySelector('#body');
-
-  //listen for when the window is resized, this set canvas width to the new size.
-  html.window.onResize.listen((event){
-    canvas.width = html.window.innerWidth;
-  });
 
   body.append(canvas);
 
@@ -30,12 +27,25 @@ void main() {
   //..scaleMode = StageScaleMode.NO_BORDER
   //..scaleMode = StageScaleMode.SHOW_ALL
   ;
+  stage.backgroundColor = Color.Black;
+
+  //listen for when the window is resized.
+  html.window.onResize.listen((event){
+    //ra-adjust canvas dimensions to properly display the stage.
+    canvas.width = html.window.innerWidth;
+    canvas.height = (canvasHeight * (canvas.width / canvasWidth)).toInt();
+
+  });
 
   new Painting().addToStage(canvas, stage);
   new Painting().addToStage(canvas, stage);
   new Painting().addToStage(canvas, stage);
   new Painting().addToStage(canvas, stage);
   new Painting().addToStage(canvas, stage);
+
+  //grab the original height of the canvas from when the website is first loaded.
+  //this is used if the website is being rescaled.
+  canvasHeight = canvas.height;
 
   var renderLoop = new RenderLoop();
   renderLoop.addStage(stage);

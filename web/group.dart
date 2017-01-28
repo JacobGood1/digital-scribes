@@ -15,7 +15,7 @@ class Group extends DisplayObjectContainer {
     this.y += yOffset;
 
     stage.addChild(this);
-    print(height + scaleY);
     canvas.height += (height * scaleY).toInt();
+    print(canvas.height);
   }
 }
