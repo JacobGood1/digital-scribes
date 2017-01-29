@@ -2,6 +2,7 @@ import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
 import 'stack.dart';
 import 'kickstarter_advert.dart';
+import 'logo_digitalscribes.dart';
 import 'navigation.dart';
 import 'test_displayObjectContainer.dart';
 
@@ -48,7 +49,8 @@ void main() {
   renderLoop.addStage(stage);
 
   var resourceManager = new ResourceManager()
-    ..addBitmapData('kickstarter_advert', 'resources/udemy_ue4_logo_2_update.png')
+    ..addBitmapData('kickstarter_advert', 'resources/advert_udemy_kickstarter_ue4.png')
+    ..addVideo('logo_digitalScribes', 'resources/logo_digitalScribes.webm')
     ..addBitmapData('button_news', 'resources/icon_news.svg')
     ..addBitmapData('button_tutorials', 'resources/icon_tutorials.svg')
     ..addBitmapData('button_contactUs', 'resources/icon_contactUs.svg')
@@ -59,6 +61,7 @@ void main() {
     //Bitmap buttonImage = ;
 
     new KickstarterAdvert(resourceManager).addToStage(canvas, stage);
+    new DigitalScribesLogo(resourceManager).addToStage(canvas, stage);
     new Navigation(resourceManager).addToStage(canvas, stage);
     new Painting().addToStage(canvas, stage);
     new Painting().addToStage(canvas, stage);

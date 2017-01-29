@@ -4,9 +4,17 @@ import 'group.dart';
 import 'buttonContainer.dart';
 
 class Navigation extends Group {
-  num height = 300;
+  num height = 50;
 
   Navigation (ResourceManager resourceManager) {
+    //overlapTop = 100.0;
+
+    //background
+    var background = new BitmapData(width, height, Color.DarkSlateGray);
+    var backgroundBitmap = new Bitmap(background);
+    addChild(backgroundBitmap);
+
+
     DisplayObjectContainer buttonContainer = new ButtonContainer(resourceManager);
 
     buttonContainer.width = width * 0.8;
