@@ -18,6 +18,7 @@ var stage = new Stage(canvas) //width: innerWidth, //stackHeight
 ;
 
 void main() {
+  StageXL.stageOptions.renderEngine = RenderEngine.Canvas2D;
   //used for when the website is rescaled.
   var canvasHeight = 0.0;
   var canvasWidth = html.window.innerWidth;
@@ -40,7 +41,7 @@ void main() {
   renderLoop.addStage(stage);
 
   var resourceManager = new ResourceManager()
-    ..addBitmapData('kickstarter_advert', 'resources/advert_udemy_kickstarter_ue4.png')
+    ..addBitmapData('kickstarter_advert', 'resources/udemy_kickstarter_ue4.png')
     ..addVideo('logo_digitalScribes', 'resources/logo_digitalScribes.webm')
     ..addBitmapData('button_news', 'resources/icon_news.svg')
     ..addBitmapData('button_tutorials', 'resources/icon_tutorials.svg')

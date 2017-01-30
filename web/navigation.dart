@@ -4,7 +4,7 @@ import 'group.dart';
 import 'buttonContainer.dart';
 
 class Navigation extends Group {
-  num height = 50;
+  num height = 1;
 
   Navigation (ResourceManager resourceManager) {
     renderOrder = 1;
