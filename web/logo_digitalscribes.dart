@@ -3,8 +3,7 @@ import 'group.dart';
 class DigitalScribesLogo extends Group {
   num height;
   DigitalScribesLogo(ResourceManager resourceManager){
-    overlapTop = 0.0;
-
+    pushUp = 50.0;
     var video = resourceManager.getVideo('logo_digitalScribes');
     //video.videoElement
     var videoObject = new VideoObject(video);

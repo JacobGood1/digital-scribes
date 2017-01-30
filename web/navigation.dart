@@ -8,7 +8,6 @@ class Navigation extends Group {
 
   Navigation (ResourceManager resourceManager) {
     renderOrder = 1;
-    //overlapTop = 100.0;
 
     //background
     var background = new BitmapData(width, height, Color.DarkSlateGray);
