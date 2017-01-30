@@ -5,5 +5,6 @@ class KickstarterAdvert extends Group {
   //resourceManager.getBitmapData('button_up')
   KickstarterAdvert(ResourceManager resourceManager){
     addChild(new Bitmap(resourceManager.getBitmapData('kickstarter_advert')));
+    super.setupPosition();
   }
 }

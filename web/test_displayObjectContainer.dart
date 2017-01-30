@@ -17,5 +17,7 @@ class Painting extends Group {
       boxBitmap.y = (60 + i * 30);
       addChild(boxBitmap);
     }
+
+    super.setupPosition();
   }
 }

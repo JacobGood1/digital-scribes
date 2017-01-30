@@ -16,6 +16,7 @@ class DigitalScribesLogo extends Group {
     videoObject.loop = true;
     videoObject.play();
 
+    super.setupPosition();
     //height = video.videoElement.videoHeight;
     //video.loop = true;
     //video.play();
