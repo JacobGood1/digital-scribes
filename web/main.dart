@@ -16,6 +16,7 @@ var stage = new Stage(canvas) //width: innerWidth, //stackHeight
 //..scaleMode = StageScaleMode.NO_BORDER
 //..scaleMode = StageScaleMode.SHOW_ALL
 ;
+
 html.BodyElement body = html.querySelector('#body');
 
 
@@ -33,8 +34,6 @@ void main() {
   stage.backgroundColor = Color.Black;
 
   //html.window.scrollbars
-
-
 
   //listen for when the window is resized.
   html.window.onResize.listen((event){
