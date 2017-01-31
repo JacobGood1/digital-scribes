@@ -19,7 +19,11 @@ class Group extends DisplayObjectContainer {
     var yOffset = 0;
     //stage.children.forEach((DisplayObjectContainer container) => yOffset += (container.height * container.scaleY));
     Stack.allItems.forEach((DisplayObjectContainer container) => yOffset += (container.height * container.scaleY));
-    this.scaleX = (main.canvas.width / width);
+    print("group: " + (main.canvas.clientWidth - main.body.clientWidth).toString());
+
+    this.scaleX = (main.canvas.width + (main.canvas.clientWidth - main.body.clientWidth)) / width;
+
+    //this.scaleX = ((html.window.innerWidth) / width); //main.canvas.width
     this.scaleY *= scaleX;
     y += yOffset;
 
@@ -42,6 +46,9 @@ class Group extends DisplayObjectContainer {
 
 
     Stack.allItems.add(this);
+
+    //main.canvas.width = (main.canvas.width - (main.canvas.clientWidth - main.body.clientWidth));
+
     return this;
   }
 }

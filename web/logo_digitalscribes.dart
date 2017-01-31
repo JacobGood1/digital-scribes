@@ -18,13 +18,9 @@ class DigitalScribesLogo extends Group {
     videoObject.play();
 
     var gradient = new GraphicsGradient.linear(x, y + height, x, y);
-    var color1 = color.rgb(r: 255, b: 0, g: 0, a: 255);
     gradient.addColorStop(0, color.rgb(r: 48, b: 48, g: 48, a: 255)); //color.rgb([255, 0, 0])
     gradient.addColorStop(1, color.rgb(r: 0, b: 0, g: 0, a: 255));
-    var sprite = new Sprite();
-    sprite.graphics.fillGradient(gradient);
-    //addChild(sprite);
-    var shape = new Sprite();
+    var shape = new Shape();
     shape.graphics
       ..beginPath()
       ..moveTo(x,y)

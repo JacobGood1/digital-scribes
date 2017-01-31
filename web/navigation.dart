@@ -2,17 +2,33 @@ import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
 import 'group.dart';
 import 'buttonContainer.dart';
+import 'color.dart' as color;
 
 class Navigation extends Group {
-  num height = 1;
+  num height = 50;
 
   Navigation (ResourceManager resourceManager) {
     renderOrder = 1;
 
     //background
-    var background = new BitmapData(width, height, Color.DarkSlateGray);
-    var backgroundBitmap = new Bitmap(background);
-    addChild(backgroundBitmap);
+    var gradient = new GraphicsGradient.linear(x, y + height, x, y);
+    gradient.addColorStop(0, color.rgb(r: 48, b: 48, g: 48, a: 255));
+    gradient.addColorStop(1, color.rgb(r: 0, b: 0, g: 0, a: 255));
+    var shape = new Shape();
+    shape.graphics
+      ..beginPath()
+      ..moveTo(x,y)
+      ..lineTo(x + width, y)
+      ..lineTo(x + width, y + height)
+      ..lineTo(x, y + height)
+      ..closePath()
+    //..fillColor(color1);
+      ..fillGradient(gradient);
+
+    addChild(shape);
+    //var background = new BitmapData(width, height, color.rgb(r: 48, b: 48, g: 48, a: 255));
+    //var backgroundBitmap = new Bitmap(background);
+    //addChild(backgroundBitmap);
 
 
     DisplayObjectContainer buttonContainer = new ButtonContainer(resourceManager);

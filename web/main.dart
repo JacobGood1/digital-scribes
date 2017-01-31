@@ -16,22 +16,30 @@ var stage = new Stage(canvas) //width: innerWidth, //stackHeight
 //..scaleMode = StageScaleMode.NO_BORDER
 //..scaleMode = StageScaleMode.SHOW_ALL
 ;
+html.BodyElement body = html.querySelector('#body');
+
 
 void main() {
+  //print(canvas.);
+
   StageXL.stageOptions.renderEngine = RenderEngine.Canvas2D;
   //used for when the website is rescaled.
   var canvasHeight = 0.0;
   var canvasWidth = html.window.innerWidth;
 
   canvas.id = '#canvas';
-  html.BodyElement body = html.querySelector('#body');
+
   body.append(canvas);
   stage.backgroundColor = Color.Black;
+
+  //html.window.scrollbars
+
+
 
   //listen for when the window is resized.
   html.window.onResize.listen((event){
     //ra-adjust canvas dimensions to properly display the stage.
-    canvas.width = html.window.innerWidth;
+    canvas.width = canvas.width - (canvas.clientWidth - body.clientWidth);
     canvas.height = (canvasHeight * (canvas.width / canvasWidth)).toInt();
   });
 
@@ -58,8 +66,8 @@ void main() {
     new Painting();
     new Painting();
     new Painting();
-    new Painting();
-    new Painting();
+    //new Painting();
+    //new Painting();
     Stack.addToStage(stage);
 
     SimpleButton button = new SimpleButton(
@@ -79,6 +87,16 @@ void main() {
     //grab the original height of the canvas from when the website is first loaded.
     //this is used if the website is being rescaled.
     canvasHeight = canvas.height;
+
+
+    print("window innerwidth: " + html.window.innerWidth.toString());
+    print("body scroll width: " + body.scrollWidth.toString());
+    print("canvas scroll width: " + canvas.scrollWidth.toString());
+    print("body cliet width: " + body.clientWidth.toString());
+    print("canvas cliet width: " + canvas.clientWidth.toString());
+    //canvas.width = html.window.innerWidth - (html.window.outerWidth - html.window.innerWidth);
+    canvas.width = canvas.width - (canvas.clientWidth - body.clientWidth);
+    canvas.height = (canvasHeight * (canvas.width / canvasWidth)).toInt();
   });
 
   /* draw a red circle
