@@ -5,10 +5,13 @@ import 'group.dart';
 import 'kickstarter_advert.dart';
 import 'logo_digitalscribes.dart';
 import 'navigation.dart';
+import 'recent_news.dart';
 import 'test_displayObjectContainer.dart';
 
+//!!! don't input a value for y, being 0 is a crucial factor!
 //height will be determined later by adding new elements to the stage. -------v
 html.CanvasElement canvas = new html.CanvasElement(width: html.window.innerWidth, height: 0);
+
 var stage = new Stage(canvas) //width: innerWidth, //stackHeight
   ..align = StageAlign.TOP_LEFT
 //..scaleMode = StageScaleMode.NO_SCALE
@@ -21,8 +24,6 @@ html.BodyElement body = html.querySelector('#body');
 
 
 void main() {
-  //print(canvas.);
-
   StageXL.stageOptions.renderEngine = RenderEngine.Canvas2D;
   //used for when the website is rescaled.
   var canvasHeight = 0.0;
@@ -46,10 +47,12 @@ void main() {
 
   var renderLoop = new RenderLoop();
   renderLoop.addStage(stage);
-
+  //TextureAtlasFormat;
   var resourceManager = new ResourceManager()
     ..addBitmapData('kickstarter_advert', 'resources/udemy_kickstarter_ue4.png')
-    ..addVideo('logo_digitalScribes', 'resources/logo_digitalScribes.webm')
+    ..addBitmapData('plan', 'resources/planOfAction.png')
+    ..addVideo('logo_digitalScribes', 'resources/logo_digitalScribes.webm')//logo_digitalScribes.webm
+    ..addTextureAtlas('logo_digitalScribes_atlas', 'resources/digitalScribes_logo_atlas/digitalScribes_logo_atlas.atlas', TextureAtlasFormat.LIBGDX)
     ..addBitmapData('button_news', 'resources/icon_news.svg')
     ..addBitmapData('button_tutorials', 'resources/icon_tutorials.svg')
     ..addBitmapData('button_contactUs', 'resources/icon_contactUs.svg')
@@ -62,6 +65,7 @@ void main() {
     new KickstarterAdvert(resourceManager);
     new DigitalScribesLogo(resourceManager);
     new Navigation(resourceManager);
+    new RecentNews(resourceManager);
     new Painting();
     new Painting();
     new Painting();
@@ -88,11 +92,11 @@ void main() {
     canvasHeight = canvas.height;
 
 
-    print("window innerwidth: " + html.window.innerWidth.toString());
+    /*print("window innerwidth: " + html.window.innerWidth.toString());
     print("body scroll width: " + body.scrollWidth.toString());
     print("canvas scroll width: " + canvas.scrollWidth.toString());
     print("body cliet width: " + body.clientWidth.toString());
-    print("canvas cliet width: " + canvas.clientWidth.toString());
+    print("canvas cliet width: " + canvas.clientWidth.toString());*/
     //canvas.width = html.window.innerWidth - (html.window.outerWidth - html.window.innerWidth);
     canvas.width = canvas.width - (canvas.clientWidth - body.clientWidth);
     canvas.height = (canvasHeight * (canvas.width / canvasWidth)).toInt();

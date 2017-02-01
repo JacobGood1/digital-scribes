@@ -6,7 +6,7 @@ import 'main.dart' as main;
 class Group extends DisplayObjectContainer {
   int renderOrder = 0;
   var resY;
-  num width = 1920.0;
+  num width = 1920;//1920.0; html.window.innerWidth
   num pushUp = 0.0;
   //html.CanvasElement canvas;
   //Stage stage;
@@ -19,12 +19,12 @@ class Group extends DisplayObjectContainer {
     var yOffset = 0;
     //stage.children.forEach((DisplayObjectContainer container) => yOffset += (container.height * container.scaleY));
     Stack.allItems.forEach((DisplayObjectContainer container) => yOffset += (container.height * container.scaleY));
-    print("group: " + (main.canvas.clientWidth - main.body.clientWidth).toString());
-
-    this.scaleX = (main.canvas.width + (main.canvas.clientWidth - main.body.clientWidth)) / width;
+    //print("group: " + (main.canvas.clientWidth - main.body.clientWidth).toString());
 
     //this.scaleX = ((html.window.innerWidth) / width); //main.canvas.width
+    this.scaleX = (main.canvas.width + (main.canvas.clientWidth - main.body.clientWidth)) / width;
     this.scaleY *= scaleX;
+
     y += yOffset;
 
     children.forEach((var child){

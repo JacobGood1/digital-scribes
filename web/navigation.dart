@@ -9,8 +9,8 @@ class Navigation extends Group {
 
   Navigation (ResourceManager resourceManager) {
     renderOrder = 1;
-
-    //background
+    pushUp = 1;
+    /*//background
     var gradient = new GraphicsGradient.linear(x, y + height, x, y);
     gradient.addColorStop(0, color.rgb(r: 48, b: 48, g: 48, a: 255));
     gradient.addColorStop(1, color.rgb(r: 0, b: 0, g: 0, a: 255));
@@ -25,10 +25,14 @@ class Navigation extends Group {
     //..fillColor(color1);
       ..fillGradient(gradient);
 
-    addChild(shape);
+    addChild(shape);*/
     //var background = new BitmapData(width, height, color.rgb(r: 48, b: 48, g: 48, a: 255));
     //var backgroundBitmap = new Bitmap(background);
     //addChild(backgroundBitmap);
+
+    var background = new BitmapData(width, height, color.rgb(r: 0, g: 0, b: 0, a: 255));
+    var backgroundBitmap = new Bitmap(background);
+    addChild(backgroundBitmap);
 
 
     DisplayObjectContainer buttonContainer = new ButtonContainer(resourceManager);

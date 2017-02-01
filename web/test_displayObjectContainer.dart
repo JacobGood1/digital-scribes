@@ -7,7 +7,7 @@ class Painting extends Group {
   final List<int> colors = [Color.Red, Color.Green, Color.Blue, Color.Brown];
 
   Painting() {
-    var background = new BitmapData(width, height, color.rgb(r: 48, g: 48, b: 48, a: 255));
+    var background = new BitmapData(width, height, color.rgb(r: 0, g: 0, b: 0, a: 255));
     var backgroundBitmap = new Bitmap(background);
     addChild(backgroundBitmap);
 
