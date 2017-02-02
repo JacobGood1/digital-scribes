@@ -18,6 +18,7 @@ void main() {
   //!!! don't input a value for y, being 0 is a crucial factor!
 //height will be determined later by adding new elements to the stage. -------v
   canvas = new html.CanvasElement(width: html.window.innerWidth, height: 0);
+  var canvasHeightBuffer = 50;
 
   stage = new Stage(canvas) //width: innerWidth, //stackHeight
     ..align = StageAlign.TOP_LEFT
@@ -44,7 +45,7 @@ void main() {
   html.window.onResize.listen((event){
     //ra-adjust canvas dimensions to properly display the stage.
     canvas.width = canvas.width - (canvas.clientWidth - body.clientWidth);
-    canvas.height = (canvasHeight * (canvas.width / canvasWidth)).toInt();
+    canvas.height = (canvasHeight * (canvas.width / canvasWidth)).toInt() + canvasHeightBuffer;
   });
 
   //new KickstarterAdvert(resource)
@@ -56,9 +57,13 @@ void main() {
   var resourceManager = new ResourceManager()
     ..addBitmapData('kickstarter_advert', 'resources/udemy_kickstarter_ue4.png')
     ..addBitmapData('plan', 'resources/planOfAction.png')
+    ..addBitmapData('timmysNightmare_Title', 'resources/title_timmysNightmare.png')
     //..addVideo('logo_digitalScribes', 'resources/logo_digitalScribes.webm')//logo_digitalScribes.webm
-    ..addVideo('timmy_example', 'resources/timmy_example_website.mp4')//, new VideoLoadOptions()..loadData=true
-    //..addVideo('timmy_example', 'resources/timmy_example_website_crossfade.mp4')
+    //..addVideo('timmy_example', 'resources/timmy_example_website_crossfade.mp4')//, new VideoLoadOptions()..loadData=true
+    //..addVideo('timmy_example', 'resources/timmy_example_website_crossfade.webm')
+    ..addVideo('timmy_example', 'resources/timmy_example_website_ogg_test.ogg')
+    ..addVideo('kickstarterTrailer', 'resources/trailer_4_final_TEST_ogg_.ogg')
+    //..addVideo('kek', 'https://drive.google.com/open?id=0B9NgZZ99OM6Ac0FUd0twY3RaMlU')
     ..addTextureAtlas('logo_digitalScribes_atlas', 'resources/digitalScribes_logo_atlas/digitalScribes_logo_atlas.atlas', TextureAtlasFormat.LIBGDX)
     ..addBitmapData('button_news', 'resources/icon_news.svg')
     ..addBitmapData('button_tutorials', 'resources/icon_tutorials.svg')
@@ -73,9 +78,9 @@ void main() {
     new DigitalScribesLogo(resourceManager);
     new Navigation(resourceManager);
     new RecentNews(resourceManager);
-    new Painting();
-    new Painting();
-    new Painting();
+    //new Painting();
+    //new Painting();
+    //new Painting();
     //new Painting();
     //new Painting();
     Stack.addToStage(stage);
@@ -106,7 +111,7 @@ void main() {
     print("canvas cliet width: " + canvas.clientWidth.toString());*/
     //canvas.width = html.window.innerWidth - (html.window.outerWidth - html.window.innerWidth);
     canvas.width = canvas.width - (canvas.clientWidth - body.clientWidth);
-    canvas.height = (canvasHeight * (canvas.width / canvasWidth)).toInt();
+    canvas.height = (canvasHeight * (canvas.width / canvasWidth)).toInt() + canvasHeightBuffer;
   });
 
   /* draw a red circle

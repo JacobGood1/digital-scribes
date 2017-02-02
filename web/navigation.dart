@@ -37,7 +37,7 @@ class Navigation extends Group {
 
     DisplayObjectContainer buttonContainer = new ButtonContainer(resourceManager);
 
-    buttonContainer.width = width * 0.8;
+    buttonContainer.width = width * 0.5;
     buttonContainer.height = buttonContainer.height * (buttonContainer.width / width);
     buttonContainer.x = this.width/2 - buttonContainer.width/2;
     buttonContainer.y = this.height/2 - buttonContainer.height/2;

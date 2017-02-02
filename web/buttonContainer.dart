@@ -1,16 +1,26 @@
 import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
 import 'group.dart';
+import 'package:mailer/mailer.dart';
+
+void sendMail () {
+  var options = new GmailSmtpOptions()
+      ..username = 'travis.animation@gmail.com'
+      ..password = 'travisty_';
+
+  var emailTransport = new SmtpTransport(options);
+  
+}
 
 class ButtonContainer extends DisplayObjectContainer {
   List<SimpleButton> buttons;
   ButtonContainer(ResourceManager resourceManager){
-    SimpleButton button_news = new SimpleButton(
+    /*SimpleButton button_news = new SimpleButton(
         new Bitmap(resourceManager.getBitmapData('button_news')),
         new Bitmap(resourceManager.getBitmapData('button_news')),
         new Bitmap(resourceManager.getBitmapData('button_news')),
         new Bitmap(resourceManager.getBitmapData('button_news'))
-    );
+    );*/
     SimpleButton button_tutorials = new SimpleButton(
         new Bitmap(resourceManager.getBitmapData('button_tutorials')),
         new Bitmap(resourceManager.getBitmapData('button_tutorials')),
@@ -23,9 +33,14 @@ class ButtonContainer extends DisplayObjectContainer {
         new Bitmap(resourceManager.getBitmapData('button_contactUs')),
         new Bitmap(resourceManager.getBitmapData('button_contactUs'))
     );
+
+    button_tutorials.onMouseUp.listen((MouseEvent event){
+      html.window.location.href = 'http://youtube.com';
+    });
+
     buttons = new List<SimpleButton>();
     buttons
-      ..add(button_news)
+      //..add(button_news)
       ..add(button_tutorials)
       ..add(button_contactUs)
     ;
@@ -40,7 +55,7 @@ class ButtonContainer extends DisplayObjectContainer {
    //this.width += padding * (buttons.length - 1);
    //button_news.x = 0.0;
    //button_tutorials.x = button_news.width + padding;
-   addChild(button_news);
+   //addChild(button_news);
    addChild(button_tutorials);
    addChild(button_contactUs);
   }
