@@ -8,23 +8,27 @@ import 'navigation.dart';
 import 'recent_news.dart';
 import 'test_displayObjectContainer.dart';
 
-//!!! don't input a value for y, being 0 is a crucial factor!
-//height will be determined later by adding new elements to the stage. -------v
-html.CanvasElement canvas = new html.CanvasElement(width: html.window.innerWidth, height: 0);
+html.CanvasElement canvas;
+Stage stage;
+html.BodyElement body;
 
-var stage = new Stage(canvas) //width: innerWidth, //stackHeight
-  ..align = StageAlign.TOP_LEFT
+void main() {
+  //StageXL.stageOptions.renderEngine = RenderEngine.Canvas2D;
+
+  //!!! don't input a value for y, being 0 is a crucial factor!
+//height will be determined later by adding new elements to the stage. -------v
+  canvas = new html.CanvasElement(width: html.window.innerWidth, height: 0);
+
+  stage = new Stage(canvas) //width: innerWidth, //stackHeight
+    ..align = StageAlign.TOP_LEFT
 //..scaleMode = StageScaleMode.NO_SCALE
 //..scaleMode = StageScaleMode.EXACT_FIT
 //..scaleMode = StageScaleMode.NO_BORDER
 //..scaleMode = StageScaleMode.SHOW_ALL
-;
+      ;
 
-html.BodyElement body = html.querySelector('#body');
+  body = html.querySelector('#body');
 
-
-void main() {
-  StageXL.stageOptions.renderEngine = RenderEngine.Canvas2D;
   //used for when the website is rescaled.
   var canvasHeight = 0.0;
   var canvasWidth = html.window.innerWidth;
@@ -48,10 +52,13 @@ void main() {
   var renderLoop = new RenderLoop();
   renderLoop.addStage(stage);
   //TextureAtlasFormat;
+
   var resourceManager = new ResourceManager()
     ..addBitmapData('kickstarter_advert', 'resources/udemy_kickstarter_ue4.png')
     ..addBitmapData('plan', 'resources/planOfAction.png')
-    ..addVideo('logo_digitalScribes', 'resources/logo_digitalScribes.webm')//logo_digitalScribes.webm
+    //..addVideo('logo_digitalScribes', 'resources/logo_digitalScribes.webm')//logo_digitalScribes.webm
+    ..addVideo('timmy_example', 'resources/timmy_example_website.mp4')//, new VideoLoadOptions()..loadData=true
+    //..addVideo('timmy_example', 'resources/timmy_example_website_crossfade.mp4')
     ..addTextureAtlas('logo_digitalScribes_atlas', 'resources/digitalScribes_logo_atlas/digitalScribes_logo_atlas.atlas', TextureAtlasFormat.LIBGDX)
     ..addBitmapData('button_news', 'resources/icon_news.svg')
     ..addBitmapData('button_tutorials', 'resources/icon_tutorials.svg')
