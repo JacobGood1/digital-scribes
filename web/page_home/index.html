@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title hello!</title>
+</head>
+<style type="text/css">
+  body { margin: 0; padding: 0; width: 100%}
+  canvas { margin: 0; padding: 0; width: 100%; display: block;}
+</style>
+<!--#stage { position: absolute; width: 100%; height: 100%}-->
+<!--  width: 100%;  -->
+<body id="body">
+    <!--it seems that canvas objects are static. once created it cannot be resized? -->
+    <!--due to this, create the canvas from dart! -->
+    <!--<canvas id="stage" width="1600" height="900"></canvas> <!--width="1600" height="900" -->
+    <script type="application/dart" src="../page_home/main.dart"></script>
+    <script src="packages/browser/dart.js"></script>
+    <iframe id="kickstartertTrailer" width="640" height="360" frameborder="0" allowfullscreen></iframe> <!-- controls -->
+    <video id="htmlObject" width="640" height="360" autoplay loop>
+        <!--source src = "resources/timmy_example_website.webm" type = "video/webm"-->
+    </video>
+</body>
+</html>
