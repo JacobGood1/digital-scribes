@@ -100,7 +100,7 @@ class RecentNews extends Group {
 
     var element = html.querySelector('#htmlObject');
     html.SourceElement vidSource = new html.SourceElement();
-    vidSource.src = "resources/timmy_example_website.ogv";//"resources/timmy_example_website.webm";
+    vidSource.src = "resources/timmy_example.mp4";//"resources/timmy_example_website.webm";
     vidSource.type = "video/ogg";//"video/webm";
     element.append(vidSource);
 
