@@ -2,50 +2,67 @@ import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
 import 'stack.dart';
 import 'main.dart' as main;
+import 'page.dart';
 
 class Group extends DisplayObjectContainer {
-  int renderOrder = 0;
+
+  Page page;
+  int renderLayer = 0;
   var resY;
   num width = 1920;//1920.0; html.window.innerWidth
-  num pushUp = 0.0;
+
+  /*set y (n) => super.y = n;
+  set height (n) => super.height = n;
+
+  get y => super.y;
+  get height => super.height;*/
+
+
   //html.CanvasElement canvas;
   //Stage stage;
-  Group() {
+  Group(Page page) {
+
+    this.page = page;
     //canvas = main.canvas;
     //stage = main.stage;
   }
 
+
+
   Group setupPosition () {
+    /*
+    * setupPosition builds an abstract representation of elements and how they will be placed on the stage.
+    * elements are first added to a global element list (page) and to a renderLayer list.
+    * just note: we are NOT adding elements directly to the stage from here!!! the stage will remain EMPTY during this process!!
+    */
+
+
     var yOffset = 0;
     //stage.children.forEach((DisplayObjectContainer container) => yOffset += (container.height * container.scaleY));
-    Stack.allItems.forEach((DisplayObjectContainer container) => yOffset += (container.height * container.scaleY));
+    page.groups.forEach((DisplayObjectContainer container){
+      yOffset += (container.height * container.scaleY);
+    });
     //print("group: " + (main.canvas.clientWidth - main.body.clientWidth).toString());
 
     //this.scaleX = ((html.window.innerWidth) / width); //main.canvas.width
-    this.scaleX = (main.canvas.width + (main.canvas.clientWidth - main.body.clientWidth)) / width;
+    this.scaleX = (page.canvas.width + (page.canvas.clientWidth - page.body.clientWidth)) / width;
     this.scaleY *= scaleX;
 
     y += yOffset;
 
-    children.forEach((var child){
-      child.y -= pushUp;
-    });
-
-    height -= pushUp;
-
     //renderOrder is made on-the-fly to accommodate any amount of rendering layers.
     //check if a render layer exists for this renderOrder, if not, add a new layer.
-    if (Stack.renderOrder.length < renderOrder + 1) {
-      for (int i = Stack.renderOrder.length; i < renderOrder + 1; i++) {
-        Stack.renderOrder.add(new List<DisplayObjectContainer>());
+    /*if (page.renderLayers.length < renderLayer + 1) {
+      for (int i = page.renderLayers.length; i < renderLayer + 1; i++) {
+        page.renderLayers.add(new List<DisplayObjectContainer>());
       }
-    }
+    }*/
 
-    Stack.renderOrder[renderOrder].add(this);
-    main.canvas.height += (height * scaleY).toInt();
+    //page.stage.addChild(this);
+    page.renderLayers[renderLayer].add(this);
+    page.canvas.height += (height * scaleY).toInt();
 
-
-    Stack.allItems.add(this);
+    page.groups.add(this);
 
     //main.canvas.width = (main.canvas.width - (main.canvas.clientWidth - main.body.clientWidth));
 

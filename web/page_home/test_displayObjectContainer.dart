@@ -1,12 +1,13 @@
 import 'package:stagexl/stagexl.dart';
-import 'group.dart';
-import 'color.dart' as color;
+import '../group.dart';
+import '../color.dart' as color;
+import '../page.dart';
 
 class Painting extends Group {
   num height = 300;
   final List<int> colors = [Color.Red, Color.Green, Color.Blue, Color.Brown];
 
-  Painting() {
+  Painting(Page page) : super(page) {
     var background = new BitmapData(width, height, color.rgb(r: 0, g: 0, b: 0, a: 255));
     var backgroundBitmap = new Bitmap(background);
     addChild(backgroundBitmap);

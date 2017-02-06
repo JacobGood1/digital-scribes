@@ -1,11 +1,10 @@
 import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
-import 'group.dart';
-import 'main.dart' as main;
+import '../group.dart';
+import '../page.dart';
+//import 'main.dart' as main;
 class KickstarterAdvert extends Group {
-  num height = 1080/2;//1080; html.window.innerHeight
-
-  KickstarterAdvert(ResourceManager resourceManager){
+  KickstarterAdvert(Page page) : super(page) {
     //autoScale = false;
     //width = html.window.innerWidth;
     //height = html.window.innerHeight;
@@ -22,8 +21,9 @@ class KickstarterAdvert extends Group {
     Mask mask = new Mask.custom(points);
     advert.mask = mask;*/
 
-    renderOrder = 0;
-    Bitmap advert = new Bitmap(resourceManager.getBitmapData('kickstarter_advert'));
+    height = 1080/2;//1080; html.window.innerHeight
+    renderLayer = 0;
+    Bitmap advert = new Bitmap(page.resourceManager.getBitmapData('kickstarter_advert'));
     //advert.scaleX = 0.5;
     //advert.scaleY = 0.5;
     addChild(advert);

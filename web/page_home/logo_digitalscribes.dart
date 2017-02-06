@@ -1,14 +1,17 @@
 import 'package:stagexl/stagexl.dart';
-import 'main.dart' as main;
-import 'group.dart';
-import 'color.dart' as color;
+//import 'main.dart' as main;
+import '../group.dart';
+import '../color.dart' as color;
+import '../page.dart';
 
-class DigitalScribesLogo extends Group {
+class DigitalScribesLogo extends Group{
   num height;
-  Juggler juggler = main.stage.juggler;
+  Juggler juggler;
   List bitmapDatas;
 
-  DigitalScribesLogo(ResourceManager resourceManager){
+  DigitalScribesLogo(Page page) : super(page){
+    renderLayer = 0;
+    juggler = page.stage.juggler;
     /*var video = resourceManager.getVideo('logo_digitalScribes');
     //video.videoElement
     var videoObject = new VideoObject(video);
@@ -20,7 +23,7 @@ class DigitalScribesLogo extends Group {
     videoObject.loop = true;
     videoObject.play();*/
 
-    bitmapDatas = resourceManager.getTextureAtlas('logo_digitalScribes_atlas').getBitmapDatas('digitalScribes_logo');
+    bitmapDatas = page.resourceManager.getTextureAtlas('logo_digitalScribes_atlas').getBitmapDatas('digitalScribes_logo');
     FlipBook flipBook = new FlipBook(bitmapDatas, 60)
     ..play()
     ;

@@ -1,8 +1,9 @@
 import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
-import 'group.dart';
-import 'color.dart' as color;
-import 'main.dart' as main;
+import '../group.dart';
+import '../color.dart' as color;
+//import 'main.dart' as main;
+import '../page.dart';
 
 class RecentNews extends Group {
   num height = 1200;
@@ -25,14 +26,13 @@ class RecentNews extends Group {
   This scripting language was designed from the ground up with the intentions of being specifically designed for games!
   ''';
 
-  RecentNews(ResourceManager resourceManager){
-    pushUp = 1;
+  RecentNews(Page page) : super(page){
 
     var background = new BitmapData(width, height, color.rgb(r: 0, g: 0, b: 0, a: 255));
     var backgroundBitmap = new Bitmap(background);
     addChild(backgroundBitmap);
 
-    Bitmap action = new Bitmap(resourceManager.getBitmapData('plan'));
+    Bitmap action = new Bitmap(page.resourceManager.getBitmapData('plan'));
     action.x = width / 2 - action.width / 2;
     action.y = y + 100;
     addChild(action);
@@ -90,7 +90,7 @@ class RecentNews extends Group {
 
     elementYOffset = textField2.y + textField2.height; //textField.y;
 
-    Bitmap timmysNightmare_title = new Bitmap(resourceManager.getBitmapData('timmysNightmare_Title'));
+    Bitmap timmysNightmare_title = new Bitmap(page.resourceManager.getBitmapData('timmysNightmare_Title'));
     addChild(timmysNightmare_title);
     timmysNightmare_title.x = this.width / 2 - timmysNightmare_title.width / 2;
     timmysNightmare_title.y = elementYOffset;
@@ -115,7 +115,7 @@ class RecentNews extends Group {
 
     //final height of this container
     //height = videoObject.y + videoObject.height;//elementYOffset + videoObject.y;// + videoObject.height;//textField.y + textField.height;
-    height = elementYOffset + element.height;
+    height = elementYOffset + element.height;// + 10;
     super.setupPosition();
   }
 }

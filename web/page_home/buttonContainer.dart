@@ -1,16 +1,6 @@
 import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
-import 'group.dart';
-import 'package:mailer/mailer.dart';
-
-void sendMail () {
-  var options = new GmailSmtpOptions()
-      ..username = 'travis.animation@gmail.com'
-      ..password = 'travisty_';
-
-  var emailTransport = new SmtpTransport(options);
-  
-}
+import '../group.dart';
 
 class ButtonContainer extends DisplayObjectContainer {
   List<SimpleButton> buttons;
