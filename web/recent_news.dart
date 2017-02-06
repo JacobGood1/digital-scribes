@@ -1,8 +1,8 @@
 import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
-import '../group.dart';
-import '../color.dart' as color;
-import '../page.dart';
+import 'group.dart';
+import 'color.dart' as color;
+import 'page.dart';
 
 class RecentNews extends Group {
   num height = 1200;
