@@ -1,5 +1,5 @@
-import 'page.dart';
-import 'page_home/home.dart' as home;
+import '../page.dart';
+import '../page_home/home.dart' as home;
 
 Page page;
 

@@ -1,3 +1,4 @@
+import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
 import 'page.dart';
 
@@ -6,7 +7,7 @@ class Group extends DisplayObjectContainer {
   Page page;
   int renderLayer = 0;
   var resY;
-  num width = 1920;//1920.0; html.window.innerWidth
+  num width = 1920;//html.window.innerWidth;//1920;//html.window.innerWidth;//
 
   /*set y (n) => super.y = n;
   set height (n) => super.height = n;

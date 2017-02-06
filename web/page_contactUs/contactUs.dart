@@ -5,9 +5,9 @@ import '../page_home/logo_digitalscribes.dart';
 import '../page_home/navigation.dart';
 import '../page_home/recent_news.dart';
 
-class Home extends Page{
+class ContactUs extends Page{
 
-  Home () {
+  ContactUs () {
     resourceManager = new ResourceManager()
       ..addBitmapData('kickstarter_advert', '../resources/udemy_kickstarter_ue4.png')
       ..addBitmapData('plan', '../resources/planOfAction.png')
