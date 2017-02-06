@@ -1,5 +1,4 @@
 import 'package:stagexl/stagexl.dart';
-//import 'main.dart' as main;
 import '../group.dart';
 import '../color.dart' as color;
 import '../page.dart';

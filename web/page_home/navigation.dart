@@ -1,4 +1,3 @@
-import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
 import '../group.dart';
 import 'buttonContainer.dart';

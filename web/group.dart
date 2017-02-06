@@ -1,7 +1,4 @@
-import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
-import 'stack.dart';
-import 'main.dart' as main;
 import 'page.dart';
 
 class Group extends DisplayObjectContainer {
@@ -52,11 +49,11 @@ class Group extends DisplayObjectContainer {
 
     //renderOrder is made on-the-fly to accommodate any amount of rendering layers.
     //check if a render layer exists for this renderOrder, if not, add a new layer.
-    /*if (page.renderLayers.length < renderLayer + 1) {
+    if (page.renderLayers.length < renderLayer + 1) {
       for (int i = page.renderLayers.length; i < renderLayer + 1; i++) {
         page.renderLayers.add(new List<DisplayObjectContainer>());
       }
-    }*/
+    }
 
     //page.stage.addChild(this);
     page.renderLayers[renderLayer].add(this);

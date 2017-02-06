@@ -1,8 +1,7 @@
-import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
 import '../group.dart';
 import '../page.dart';
-//import 'main.dart' as main;
+
 class KickstarterAdvert extends Group {
   KickstarterAdvert(Page page) : super(page) {
     //autoScale = false;

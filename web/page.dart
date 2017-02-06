@@ -6,8 +6,6 @@ class Page {
   html.CanvasElement canvas;
   Stage stage;
   ResourceManager resourceManager;
-
-  int renderLayerSize = 3;
   List<List<DisplayObjectContainer>> renderLayers = new List<List<DisplayObjectContainer>>();
 
   //used for when the website is rescaled.
@@ -20,11 +18,6 @@ class Page {
 
   Page () {
     //StageXL.stageOptions.renderEngine = RenderEngine.Canvas2D;
-
-    //render layers
-    for (int i = 0; i < renderLayerSize; i++){
-      renderLayers.add(new List<DisplayObjectContainer>());
-    }
 
     //!!! don't input a value for y, being 0 is a crucial factor!
     //height will be determined later by adding new elements to the stage. -------v
@@ -50,7 +43,6 @@ class Page {
     //listen for when the window is resized.
     html.window.onResize.listen((event){
       //ra-adjust canvas dimensions to properly display the stage.
-
       canvas.width = canvas.width - (canvas.clientWidth - body.clientWidth);
       canvas.height = (canvasHeight * (canvas.width / canvasWidth)).toInt() + canvasHeightBuffer;
     });
@@ -65,5 +57,15 @@ class Page {
         stage.addChild(group);
       });
     });
+  }
+
+  void finalizeCanvasDimensions () {
+    //grab the original height of the canvas from when the website is first loaded.
+    //this is used if the website is being rescaled.
+    canvasHeight = canvas.height;
+
+    //resize canvas width and height to match the outcome of the abstract element tree.
+    canvas.width = canvas.width - (canvas.clientWidth - body.clientWidth);
+    canvas.height = (canvasHeight * (canvas.width / canvasWidth)).toInt() + canvasHeightBuffer;
   }
 }

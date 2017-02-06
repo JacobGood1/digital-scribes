@@ -1,6 +1,5 @@
 import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
-import '../group.dart';
 
 class ButtonContainer extends DisplayObjectContainer {
   List<SimpleButton> buttons;
