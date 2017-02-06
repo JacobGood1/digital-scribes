@@ -1,7 +1,7 @@
 import 'package:stagexl/stagexl.dart';
-import '../group.dart';
-import '../color.dart' as color;
-import '../page.dart';
+import 'group.dart';
+import 'color.dart' as color;
+import 'page.dart';
 
 class Painting extends Group {
   num height = 300;

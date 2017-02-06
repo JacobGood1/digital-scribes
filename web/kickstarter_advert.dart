@@ -1,7 +1,7 @@
 import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
-import '../group.dart';
-import '../page.dart';
+import 'group.dart';
+import 'page.dart';
 
 class KickstarterAdvert extends Group {
   num height = 1080/2;

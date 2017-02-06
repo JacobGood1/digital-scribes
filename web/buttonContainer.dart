@@ -28,7 +28,7 @@ class ButtonContainer extends DisplayObjectContainer {
     });
     button_contactUs.onMouseUp.listen((MouseEvent event){
       print('contact us clicked');
-      html.window.location.href = '../page_contactUs/contact_us.html';
+      html.window.location.href = 'contact_us.html';
     });
 
     buttons = new List<SimpleButton>();

@@ -1,8 +1,8 @@
 import 'package:stagexl/stagexl.dart';
-import '../group.dart';
+import 'group.dart';
 import 'buttonContainer.dart';
-import '../color.dart' as color;
-import '../page.dart';
+import 'color.dart' as color;
+import 'page.dart';
 
 class Navigation extends Group {
   num height = 50;

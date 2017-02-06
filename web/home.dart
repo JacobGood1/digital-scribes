@@ -1,9 +1,9 @@
 import 'package:stagexl/stagexl.dart';
 import 'page.dart';
-import 'page_home/kickstarter_advert.dart';
-import 'page_home/logo_digitalscribes.dart';
-import 'page_home/navigation.dart';
-import 'page_home/recent_news.dart';
+import 'kickstarter_advert.dart';
+import 'logo_digitalscribes.dart';
+import 'navigation.dart';
+import 'recent_news.dart';
 
 class Home extends Page{
 
