@@ -37,7 +37,9 @@ class Group extends DisplayObjectContainer {
 
     var yOffset = 0;
     //stage.children.forEach((DisplayObjectContainer container) => yOffset += (container.height * container.scaleY));
+    print(page.groups);
     page.groups.forEach((DisplayObjectContainer container){
+      print("container: " + container.toString() + " height: " + container.height.toString() + " scaleY: " + container.scaleY.toString());
       yOffset += (container.height * container.scaleY);
     });
     //print("group: " + (main.canvas.clientWidth - main.body.clientWidth).toString());
@@ -50,11 +52,11 @@ class Group extends DisplayObjectContainer {
 
     //renderOrder is made on-the-fly to accommodate any amount of rendering layers.
     //check if a render layer exists for this renderOrder, if not, add a new layer.
-    if (page.renderLayers.length < renderLayer + 1) {
+    /*if (page.renderLayers.length < renderLayer + 1) {
       for (int i = page.renderLayers.length; i < renderLayer + 1; i++) {
         page.renderLayers.add(new List<DisplayObjectContainer>());
       }
-    }
+    }*/
 
     //page.stage.addChild(this);
     page.renderLayers[renderLayer].add(this);

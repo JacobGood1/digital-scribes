@@ -19,6 +19,10 @@ class Page {
   Page () {
     //StageXL.stageOptions.renderEngine = RenderEngine.Canvas2D;
 
+    for (int i = 0; i < 3; i++){
+      renderLayers.add(new List<DisplayObjectContainer>());
+    }
+
     //!!! don't input a value for y, being 0 is a crucial factor!
     //height will be determined later by adding new elements to the stage. -------v
     canvas = new html.CanvasElement(width: html.window.innerWidth, height: 0);
