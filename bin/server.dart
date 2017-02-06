@@ -15,7 +15,7 @@ import 'package:args/args.dart';
 
 
 // API at /v1/XXXX
-part 'resources/hello.dart';
+//part 'resources/hello.dart';
 
 // Serve static files with shelf static
 part 'resources/shelf_static.dart';

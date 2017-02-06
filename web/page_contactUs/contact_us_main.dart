@@ -1,5 +1,5 @@
 import '../page.dart';
-import '../page_contactUs/contactUs.dart' as contactUs;
+import '../page_contactUs/contact_us.dart' as contactUs;
 
 Page page;
 
