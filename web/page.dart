@@ -1,11 +1,22 @@
 import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
 
+class RENDER_ORDER {
+  static int Advertisement = 0;
+  static int DigitalScribesLogo = 1;
+  static int Navigation = 2;
+  static int RecentNews = 3;
+}
+
 class Page {
   html.BodyElement body;
   html.CanvasElement canvas;
   Stage stage;
-  ResourceManager resourceManager;
+  ResourceManager resourceManagerAdvert;
+  ResourceManager resourceManagerDigitalScribesLogo;
+  ResourceManager resourceManagerNavigation;
+  ResourceManager resourceManagerNews;
+
   List<List<DisplayObjectContainer>> renderLayers = new List<List<DisplayObjectContainer>>();
 
   //used for when the website is rescaled.

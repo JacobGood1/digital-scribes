@@ -34,7 +34,7 @@ class Navigation extends Group {
     addChild(backgroundBitmap);
 
 
-    DisplayObjectContainer buttonContainer = new ButtonContainer(page.resourceManager);
+    DisplayObjectContainer buttonContainer = new ButtonContainer(page.resourceManagerNavigation);
 
     buttonContainer.width = width * 0.5;
     buttonContainer.height = buttonContainer.height * (buttonContainer.width / width);

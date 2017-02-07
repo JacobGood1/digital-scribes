@@ -26,12 +26,11 @@ class RecentNews extends Group {
   ''';
 
   RecentNews(Page page) : super(page){
-
     var background = new BitmapData(width, height, color.rgb(r: 0, g: 0, b: 0, a: 255));
     var backgroundBitmap = new Bitmap(background);
     addChild(backgroundBitmap);
 
-    Bitmap action = new Bitmap(page.resourceManager.getBitmapData('plan'));
+    Bitmap action = new Bitmap(page.resourceManagerNews.getBitmapData('plan'));
     action.x = width / 2 - action.width / 2;
     action.y = y + 100;
     addChild(action);
@@ -90,7 +89,7 @@ class RecentNews extends Group {
 
     elementYOffset = textField2.y + textField2.height; //textField.y;
 
-    Bitmap timmysNightmare_title = new Bitmap(page.resourceManager.getBitmapData('timmysNightmare_Title'));
+    Bitmap timmysNightmare_title = new Bitmap(page.resourceManagerNews.getBitmapData('timmysNightmare_Title'));
     addChild(timmysNightmare_title);
     timmysNightmare_title.x = this.width / 2 - timmysNightmare_title.width / 2;
     timmysNightmare_title.y = elementYOffset;
@@ -101,7 +100,7 @@ class RecentNews extends Group {
     var element = html.querySelector('#htmlObject');
     html.SourceElement vidSource = new html.SourceElement();
     vidSource.src = "resources/timmy_example.mp4";//"resources/timmy_example_website.webm";
-    vidSource.type = "video/ogg";//"video/webm";
+    vidSource.type = "video/mp4";//"video/webm";
     element.append(vidSource);
 
     var htmlObject = new HtmlObject(element);

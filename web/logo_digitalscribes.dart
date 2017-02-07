@@ -22,7 +22,7 @@ class DigitalScribesLogo extends Group{
     videoObject.loop = true;
     videoObject.play();*/
 
-    bitmapDatas = page.resourceManager.getTextureAtlas('logo_digitalScribes_atlas').getBitmapDatas('digitalScribes_logo');
+    bitmapDatas = page.resourceManagerDigitalScribesLogo.getTextureAtlas('logo_digitalScribes_atlas').getBitmapDatas('digitalScribes_logo');
     FlipBook flipBook = new FlipBook(bitmapDatas, 60)
     ..play()
     ;

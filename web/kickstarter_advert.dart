@@ -5,7 +5,7 @@ import 'page.dart';
 
 class KickstarterAdvert extends Group {
   num height = 1080/2;
-  KickstarterAdvert(Page page) : super(page) {
+  KickstarterAdvert(Page page) : super(page)  {
     //autoScale = false;
     //width = html.window.innerWidth;
     //height = html.window.innerHeight;
@@ -24,7 +24,7 @@ class KickstarterAdvert extends Group {
 
 
     renderLayer = 0;
-    Bitmap advert = new Bitmap(page.resourceManager.getBitmapData('kickstarter_advert'));
+    Bitmap advert = new Bitmap(page.resourceManagerAdvert.getBitmapData('kickstarter_advert'));
     //advert.scaleX = 0.5;
     //advert.scaleY = 0.5;
     //height = 0;//advert.height;//html.window.innerHeight / 2;//1080/2;//1080; html.window.innerHeight
