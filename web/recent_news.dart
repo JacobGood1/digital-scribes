@@ -98,24 +98,32 @@ class RecentNews extends Group {
 
     //---- embed a video over the stage
 
-    var element = html.querySelector('#htmlObject');
+    /*html.VideoElement element = html.querySelector('#htmlObject');
     html.SourceElement vidSource = new html.SourceElement();
     vidSource.src = "resources/timmy_example.mp4";//"resources/timmy_example_website.webm";
-    vidSource.type = "video/ogg";//"video/webm";
+    vidSource.type = "video/mp4";//"video/webm";
     element.append(vidSource);
 
     var htmlObject = new HtmlObject(element);
     htmlObject.x = this.width / 2 - element.width / 2;
     htmlObject.y = elementYOffset;
 
-    addChild(htmlObject);
+    addChild(htmlObject);*/
+
+    var timmyExample_video = page.resourceManager.getVideo('timmy_example');
+    timmyExample_video.loop = true;
+    timmyExample_video.play();
+    var timmyExample_videoObj = new VideoObject(timmyExample_video);
+    addChild(timmyExample_videoObj);
+    timmyExample_videoObj.x = this.width / 2 - timmyExample_videoObj.width / 2;
+    timmyExample_videoObj.y = elementYOffset;
     //----------------------------------
 
     //elementYOffset += videoObject.y + videoObject.height + 50;
 
     //final height of this container
     //height = videoObject.y + videoObject.height;//elementYOffset + videoObject.y;// + videoObject.height;//textField.y + textField.height;
-    height = elementYOffset + element.height;// + 10;
+    height = elementYOffset + timmyExample_videoObj.height;// + 10;
     super.setupPosition();
   }
 }
