@@ -4,11 +4,11 @@ import 'package:stagexl/stagexl.dart';
 class ButtonContainer extends DisplayObjectContainer {
   List<SimpleButton> buttons;
   ButtonContainer(ResourceManager resourceManager){
-    SimpleButton button_tutorials = new SimpleButton(
-        new Bitmap(resourceManager.getBitmapData('button_tutorials')),
-        new Bitmap(resourceManager.getBitmapData('button_tutorials')),
-        new Bitmap(resourceManager.getBitmapData('button_tutorials')),
-        new Bitmap(resourceManager.getBitmapData('button_tutorials'))
+    SimpleButton button_contactUs = new SimpleButton(
+        new Bitmap(resourceManager.getBitmapData('button_contact_us')),
+        new Bitmap(resourceManager.getBitmapData('button_contact_us')),
+        new Bitmap(resourceManager.getBitmapData('button_contact_us')),
+        new Bitmap(resourceManager.getBitmapData('button_contact_us'))
     );
     SimpleButton button_home = new SimpleButton(
         new Bitmap(resourceManager.getBitmapData('button_home')),
@@ -17,8 +17,8 @@ class ButtonContainer extends DisplayObjectContainer {
         new Bitmap(resourceManager.getBitmapData('button_home'))
     );
 
-    button_tutorials.onMouseUp.listen((MouseEvent event){
-      html.window.location.href = 'tutorials.html';
+    button_contactUs.onMouseUp.listen((MouseEvent event){
+      html.window.location.href = 'contact_us.html';
     });
     button_home.onMouseUp.listen((MouseEvent event){
       html.window.location.href = 'index.html';
@@ -27,8 +27,8 @@ class ButtonContainer extends DisplayObjectContainer {
     buttons = new List<SimpleButton>();
     buttons
       //..add(button_news)
-      ..add(button_tutorials)
       ..add(button_home)
+      ..add(button_contactUs)
     ;
    var padding = 10.0;
    var placement = 0.0;
@@ -40,9 +40,9 @@ class ButtonContainer extends DisplayObjectContainer {
    //this.width = 5000;
    //this.width += padding * (buttons.length - 1);
    //button_news.x = 0.0;
-   //button_tutorials.x = button_news.width + padding;
+   //button_contact_us.x = button_news.width + padding;
    //addChild(button_news);
-   addChild(button_tutorials);
    addChild(button_home);
+   addChild(button_contactUs);
   }
 }
