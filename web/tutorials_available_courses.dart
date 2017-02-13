@@ -13,7 +13,10 @@ SimpleButton lockedButton(Group group, int elementYOffset, String ingameImg, Str
       ingame.width, ingame.height + title.height + padding,
       Color.Transparent
   );
-  bitmapData.drawPixels(ingame, ingame.rectangle, new Point(0, title_overlap));
+
+  Point ingame_point = new Point(0, title_overlap);
+  Rectangle ingame_rectangle = new Rectangle.from(ingame.rectangle);
+  bitmapData.drawPixels(ingame, ingame_rectangle, ingame_point);
   bitmapData.drawPixels(title, title.rectangle, new Point(ingame.width/2 - title.width/2, 0));
 
   Bitmap bitmap = new Bitmap(bitmapData);
@@ -28,15 +31,31 @@ SimpleButton lockedButton(Group group, int elementYOffset, String ingameImg, Str
   blur_bitmap.x = group.width / 2 - blur_bitmap.width / 2;
   //blur_bitmap.y = elementYOffset;
   blur_bitmap.filters = [new BlurFilter(20, 20, 5)];
-  Bitmap bitmap_locked = new Bitmap(blur_bitmap.bitmapData.clone()); //blur_bitmap.bitmapData.clone()
-  bitmap_locked.bitmapData.drawPixels(lock, lock.rectangle, new Point(blur_bitmap.width / 2 - lock.width / 2, blur_bitmap.height / 2 - lock.height / 2));
+  //Bitmap bitmap_locked = new Bitmap(blur_bitmap.bitmapData.clone()); //blur_bitmap.bitmapData.clone()
+  //bitmap_locked.bitmapData.drawPixels(lock, lock.rectangle, new Point(blur_bitmap.width / 2 - lock.width / 2, blur_bitmap.height / 2 - lock.height / 2));
+  Bitmap bitmap_lock = new Bitmap(lock);
+  bitmap_lock.scaleX = 0.5;
+  bitmap_lock.scaleY = 0.5;
 
-  return new SimpleButton(
+  SimpleButton button = new SimpleButton(
       bitmap,
       blur_bitmap,
       blur_bitmap,
       blur_bitmap
   );
+  button.onMouseOver.listen((event){
+    //set location of 'bitmap_locked'
+    bitmap_lock.x = button.x + ingame_rectangle.width / 2;
+    bitmap_lock.y = button.y + ingame_point.y - ingame_rectangle.height / 2;// - bitmap_lock.height / 2;
+    //add locked icon to stage
+    group.addChild(bitmap_lock);
+  });
+  button.onMouseOut.listen((event){
+    //removed locked icon from stage
+    group.removeChild(bitmap_lock);
+  });
+
+  return button;
 }
 
 class AvailableCourses extends Group {
