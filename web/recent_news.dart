@@ -47,7 +47,27 @@ class RecentNews extends Group {
     textField.height = 200;
     textField.x = width / 2 - textField.width / 2;
     //textField.wordWrap = true;
-    addChild(textField);
+    //addChild(textField);
+
+    html.CssStyleDeclaration css = new html.CssStyleDeclaration();
+    css.size = '30';
+    css.font = 'Helvetica,Arial';
+    css.color = 'white';
+    css.textAlign = 'center';
+    //inject text
+    String kek = "Test text...";
+    html.Text testtext = new html.Text(kek);
+    html.ParagraphElement divElement = new html.ParagraphElement();
+
+    divElement.append(testtext);
+    divElement.style.position = 'absolute';
+    divElement.style.left = '0px';
+    divElement.style.top = '0px';
+    divElement.style.size = '100';
+    divElement.style.textAlign = 'center';
+    divElement.style.font = 'Helvetica,Arial';
+    divElement.style.color = 'white';
+    page.body.append(divElement);
 
     elementYOffset = textField.y + textField.height; //textField.y;
 
