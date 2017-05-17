@@ -5,7 +5,7 @@ import 'color.dart' as color;
 import 'page.dart';
 
 class Navigation extends Group {
-  num height = 50;
+  num height = 150;//50;
 
   Navigation (Page page) : super(page){
     renderLayer = 1;
