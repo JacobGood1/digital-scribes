@@ -57,10 +57,9 @@ class ButtonContainer extends DisplayObjectContainer {
       html.window.location.href = 'subscribe.html';
     });
     button_tutorials.onMouseUp.listen((MouseEvent event){
-      html.window.location.href = 'subscribe.html';
+      html.window.location.href = 'tutorials.html';
     });
     button_contactUs.onMouseUp.listen((MouseEvent event){
-      print('contact us clicked');
       html.window.location.href = 'contact_us.html';
     });
 

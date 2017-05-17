@@ -47,7 +47,27 @@ class RecentNews extends Group {
     textField.height = 200;
     textField.x = width / 2 - textField.width / 2;
     //textField.wordWrap = true;
-    addChild(textField);
+    //addChild(textField);
+
+    html.CssStyleDeclaration css = new html.CssStyleDeclaration();
+    css.size = '30';
+    css.font = 'Helvetica,Arial';
+    css.color = 'white';
+    css.textAlign = 'center';
+    //inject text
+    String kek = "Test text...";
+    html.Text testtext = new html.Text(kek);
+    html.ParagraphElement divElement = new html.ParagraphElement();
+
+    divElement.append(testtext);
+    divElement.style.position = 'absolute';
+    divElement.style.left = '0px';
+    divElement.style.top = '0px';
+    divElement.style.size = '100';
+    divElement.style.textAlign = 'center';
+    divElement.style.font = 'Helvetica,Arial';
+    divElement.style.color = 'white';
+    page.body.append(divElement);
 
     elementYOffset = textField.y + textField.height; //textField.y;
 
@@ -98,24 +118,32 @@ class RecentNews extends Group {
 
     //---- embed a video over the stage
 
-    var element = html.querySelector('#htmlObject');
+    /*html.VideoElement element = html.querySelector('#htmlObject');
     html.SourceElement vidSource = new html.SourceElement();
     vidSource.src = "resources/timmy_example.mp4";//"resources/timmy_example_website.webm";
-    vidSource.type = "video/ogg";//"video/webm";
+    vidSource.type = "video/mp4";//"video/webm";
     element.append(vidSource);
 
     var htmlObject = new HtmlObject(element);
     htmlObject.x = this.width / 2 - element.width / 2;
     htmlObject.y = elementYOffset;
 
-    addChild(htmlObject);
+    addChild(htmlObject);*/
+
+    var timmyExample_video = page.resourceManager.getVideo('timmy_example');
+    timmyExample_video.loop = true;
+    timmyExample_video.play();
+    var timmyExample_videoObj = new VideoObject(timmyExample_video);
+    addChild(timmyExample_videoObj);
+    timmyExample_videoObj.x = this.width / 2 - timmyExample_videoObj.width / 2;
+    timmyExample_videoObj.y = elementYOffset;
     //----------------------------------
 
     //elementYOffset += videoObject.y + videoObject.height + 50;
 
     //final height of this container
     //height = videoObject.y + videoObject.height;//elementYOffset + videoObject.y;// + videoObject.height;//textField.y + textField.height;
-    height = elementYOffset + element.height;// + 10;
+    height = elementYOffset + timmyExample_videoObj.height;// + 10;
     super.setupPosition();
   }
 }
