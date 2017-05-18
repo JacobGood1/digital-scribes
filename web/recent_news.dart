@@ -21,7 +21,6 @@ class RecentNews extends Group {
   using a powerful game engine known as the Unreal Engine 4.
 
   You will develop this game using the one and only scripting language available for Unreal Engine 4.
-
   This scripting language was designed from the ground up with the intentions of being specifically designed for games!
   ''';
 
@@ -33,13 +32,13 @@ class RecentNews extends Group {
 
     Bitmap action = new Bitmap(page.resourceManager.getBitmapData('plan'));
     action.x = width / 2 - action.width / 2;
-    action.y = y + 100;
+    action.y = y + 30;
     addChild(action);
 
     elementYOffset = action.y + action.height + 10;
 
     var textField = new TextField();
-    var textFormat = new TextFormat('Helvetica,Arial', 30, Color.White, align: TextFormatAlign.CENTER);
+    var textFormat = new TextFormat('Monda', 30, Color.White, align: TextFormatAlign.CENTER);
     textField.defaultTextFormat = textFormat;
     textField.text = text1;
     textField.y = elementYOffset;
@@ -49,7 +48,7 @@ class RecentNews extends Group {
     //textField.wordWrap = true;
     //addChild(textField);
 
-    html.CssStyleDeclaration css = new html.CssStyleDeclaration();
+    /*html.CssStyleDeclaration css = new html.CssStyleDeclaration();
     css.size = '30';
     css.font = 'Helvetica,Arial';
     css.color = 'white';
@@ -69,7 +68,7 @@ class RecentNews extends Group {
     divElement.style.color = 'white';
     page.body.append(divElement);
 
-    elementYOffset = textField.y + textField.height; //textField.y;
+    elementYOffset = textField.y + textField.height; //textField.y;*/
 
     //kickstarter trailer video
     html.IFrameElement kickstarterHtmlElement = html.querySelector('#kickstartertTrailer');
@@ -82,7 +81,7 @@ class RecentNews extends Group {
     kickstarterHtmlElement.src = "https://www.youtube.com/embed/TpUmFruoFAc?controls=1";
     var kickstarterTrailer = new HtmlObject(kickstarterHtmlElement);
     kickstarterTrailer.x = this.width / 2 - int.parse(kickstarterHtmlElement.width) / 2;
-    kickstarterTrailer.y = elementYOffset;
+    kickstarterTrailer.y = elementYOffset + 50;
     addChild(kickstarterTrailer);
     elementYOffset = kickstarterTrailer.y + int.parse(kickstarterHtmlElement.height) + 50;
 
@@ -98,7 +97,7 @@ class RecentNews extends Group {
     //addChild(videoObject);*/
 
     var textField2 = new TextField();
-    var textFormat2 = new TextFormat('Helvetica,Arial', 30, Color.White, align: TextFormatAlign.CENTER);
+    var textFormat2 = new TextFormat('Monda', 30, Color.White, align: TextFormatAlign.CENTER);
     textField2.defaultTextFormat = textFormat2;
     textField2.text = text2;
     textField2.y = elementYOffset;

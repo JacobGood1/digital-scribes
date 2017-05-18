@@ -5,22 +5,22 @@ class ButtonContainer extends DisplayObjectContainer {
   List<DisplayObject> buttons;
   ButtonContainer(ResourceManager resourceManager){
     var button_subscribe = new TextField();
-    button_subscribe.defaultTextFormat = new TextFormat('Monda', 100, Color.GreenYellow);
+    button_subscribe.defaultTextFormat = new TextFormat('Monda', 100, Color.GreenYellow, align: "center");
     button_subscribe.text = "Subscribe to DigitalScribes";// "mailing list and stay up to date with current news.";
-    //textField.x = 20;
-    //textField.y = 20;
-    button_subscribe.width = 1350;
+    button_subscribe.width = this.width;// = 1350;
     button_subscribe.height = 140;
+    button_subscribe.x = 0;
+    //textField.y = 20;
     button_subscribe.wordWrap = false;
     button_subscribe.filters = [
       new GlowFilter(Color.GreenYellow, 60, 60, 5)
     ];
     var button_subscribe_mouseOver = new TextField();
-    button_subscribe_mouseOver.defaultTextFormat = new TextFormat('Monda', 100, Color.Cyan);
+    button_subscribe_mouseOver.defaultTextFormat = new TextFormat('Monda', 100, Color.Cyan, align: "center");
     button_subscribe_mouseOver.text = "Subscribe to DigitalScribes";// "mailing list and stay up to date with current news.";
-    //textField.x = 20;
+    button_subscribe_mouseOver.x = 0;
     //textField.y = 20;
-    button_subscribe_mouseOver.width = 1350;
+    button_subscribe_mouseOver.width = width;// = 1350;
     button_subscribe_mouseOver.height = 140;
     button_subscribe_mouseOver.wordWrap = false;
     button_subscribe_mouseOver.filters = [
@@ -54,7 +54,7 @@ class ButtonContainer extends DisplayObjectContainer {
         button_subscribe
     );
     button_test.onMouseClick.listen((MouseEvent event){
-      html.window.location.href = 'subscribe.html';
+      html.window.location.href = 'tutorials.html';
     });
     button_tutorials.onMouseUp.listen((MouseEvent event){
       html.window.location.href = 'tutorials.html';
@@ -74,12 +74,12 @@ class ButtonContainer extends DisplayObjectContainer {
    var placement = 0.0;
 
     var text_subscribeInfo = new TextField();
-    text_subscribeInfo.defaultTextFormat = new TextFormat('Monda', 60, Color.Azure, italic:true);
+    text_subscribeInfo.defaultTextFormat = new TextFormat('Monda', 60, Color.Azure, italic:true, align: "center");
     text_subscribeInfo.text = "and stay up to date with current news.";
-    text_subscribeInfo.width = 1160;
+    text_subscribeInfo.width = width;//1160;
     text_subscribeInfo.height = 140;
-    text_subscribeInfo.x = (button_subscribe.x + (button_subscribe.width/2)) - text_subscribeInfo.width / 2;
-    text_subscribeInfo.y = button_subscribe.y + (button_subscribe.height - 10);
+    //text_subscribeInfo.x = (button_subscribe.x + (button_subscribe.width/2)) - text_subscribeInfo.width / 2;
+    //text_subscribeInfo.y = button_subscribe.y + (button_subscribe.height - 10);
     text_subscribeInfo.wordWrap = false;
     addChild(text_subscribeInfo);
 

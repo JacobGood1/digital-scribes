@@ -27,7 +27,7 @@ class Tutorials extends Page{
       //instantiate all elements - create an abstract element tree
       new CoursesAdvert(this);
       new DigitalScribesLogo(this);
-      new NavigationCourses(this);
+      //new NavigationCourses(this);
       new AvailableCourses(this);
 
       //an abstract element tree has been created, use that information and add all elements to the stage.
