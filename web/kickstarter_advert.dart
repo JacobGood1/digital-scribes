@@ -25,8 +25,8 @@ class KickstarterAdvert extends Group {
 
     renderLayer = 0;
     Bitmap advert = new Bitmap(page.resourceManager.getBitmapData('kickstarter_advert'));
-    //advert.scaleX = 0.5;
-    //advert.scaleY = 0.5;
+    advert.scaleX = 2;
+    advert.scaleY = 2;
     //height = 0;//advert.height;//html.window.innerHeight / 2;//1080/2;//1080; html.window.innerHeight
     addChild(advert);
 
