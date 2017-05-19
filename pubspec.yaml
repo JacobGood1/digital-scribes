@@ -14,6 +14,8 @@ dependencies:
   vane: '0.8.2'
   shelf_static: '^0.2.4'
   args: '^0.13.7'
+  mongo_dart: "^0.2.10"
+  shelf_route: 0.14.3
 
 dev_dependencies:
   browser: '>=0.10.0 <0.11.0'
