@@ -1,27 +1,17 @@
 library server;
 
-// Import from Dart's core/builtin library
+
 import 'dart:io';
 import 'dart:async';
-
-// Import from pub.dartlang.org
+import 'package:mongo_dart/mongo_dart.dart';
 import 'package:vane/vane_server.dart';
-import 'package:shelf_route/shelf_route.dart' as sh;
-import 'package:shelf/shelf.dart' as shelf;
 import 'package:shelf/shelf_io.dart' as io;
 import 'package:shelf_static/shelf_static.dart';
 import 'package:args/args.dart';
 
-// Import from the "lib" director
+part 'resources/handlers.dart';
 
 
-// API at /v1/XXXX
-//part 'resources/hello.dart';
-
-// Serve static files with shelf static
-part 'resources/shelf_static.dart';
-
-// NOTE: Not a perfect solution to use a global variable, but for this sample it will do
 ArgResults cmdArgs;
 
 void main(List<String> args) {
