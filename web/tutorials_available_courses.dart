@@ -58,6 +58,16 @@ SimpleButton lockedButton(Group group, int elementYOffset, String ingameImg, Str
   return button;
 }
 
+void submitForm() { //Event e
+  //e.preventDefault();
+  var request = new html.HttpRequest();
+  request.onReadyStateChange.listen((html.ProgressEvent e){});
+  var url = 'http://127.0.0.1:8080';
+  request.open('POST', url);
+  request.send('hello');
+}
+void kekk(Event e){}
+
 class AvailableCourses extends Group {
   num height = 1200;
   num elementYOffset = 100;
@@ -168,6 +178,13 @@ class AvailableCourses extends Group {
     elementYOffset = email_label.y + email_label.height;
     addChild(email_label);
 
+    html.TextInputElement email_input_htmlelm = html.querySelector('#email_input');
+    var email_input = new HtmlObject(email_input_htmlelm);
+    email_input.element.innerHtml;
+    //var lel = email_input.element.innerHtml;
+    //html.ButtonElement buttonElement = html.querySelector('#email_submit');
+    //buttonElement.onSubmit.listen(kekk); //(Event e){e.preventDefault();}
+
     var kek2 = new TextField();
     kek2.defaultTextFormat = new TextFormat('Monda', 30, Color.WhiteSmoke, align: "center");
     kek2.text = "Have any questions? Feel free to contact us at digitalscribes@forgot.com";
@@ -181,5 +198,8 @@ class AvailableCourses extends Group {
 
     height = elementYOffset;// + 10;
     super.setupPosition();
+
+    submitForm();
+
   }
 }

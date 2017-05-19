@@ -13,9 +13,9 @@
 <body id="body">
     <script type="application/dart" src="tutorials_main.dart"></script>
     <script src="packages/browser/dart.js"></script>
-    <form id="email"> <!--action="/action_page.php"-->
-        <input type="text" name="email" value="" size="20">
-        <input type="submit" value="Submit">
+    <form id="email" method="post" action="submit_email.dart"> <!-- action="http://www.dartlang.org" action="http://localhost:8080"-->
+        <input id="email_input" type="text" name="email" value="" size="20">
+        <input id="email_submit" type="submit" value="Submit" on-click="{{submitForm}}">
     </form>
 </body>
 </html>

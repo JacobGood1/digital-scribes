@@ -35,6 +35,6 @@ void main(List<String> args) {
 
   // NOTE: If the environment variable "PORT" is set, that overrides 7777 below. When deploying to Sourcevoid for
   // example the PORT variable is used so locally you can use whatever port you like.
-  serve(address: '0.0.0.0', port: 7777);
+  serve(address: '0.0.0.0', port: 1234);
 }
 
