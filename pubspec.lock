@@ -49,6 +49,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+  concepts:
+    description:
+      name: concepts
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.0"
   convert:
     description:
       name: convert
@@ -73,6 +79,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  either:
+    description:
+      name: either
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.8"
   fixnum:
     description:
       name: fixnum
@@ -151,6 +163,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.10"
+  option:
+    description:
+      name: option
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.0"
   parsers:
     description:
       name: parsers
@@ -193,6 +211,18 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.7+2"
+  shelf_path:
+    description:
+      name: shelf_path
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.8"
+  shelf_route:
+    description:
+      name: shelf_route
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.14.3"
   shelf_static:
     description:
       name: shelf_static
