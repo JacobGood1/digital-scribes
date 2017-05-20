@@ -16,6 +16,7 @@ dependencies:
   args: '^0.13.7'
   mongo_dart: "^0.2.10"
   shelf_route: 0.14.3
+  mailer: "^1.1.1"
 
 dev_dependencies:
   browser: '>=0.10.0 <0.11.0'

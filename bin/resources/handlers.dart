@@ -12,13 +12,22 @@ class Handlers extends Vane {
 
   String collectionName = "emails";
 
-  @Route("/api/get_emails", method: GET)
-  Future get_emails() {
+  @Route("/api/notify_start", method: GET)
+  Future notify_start() {
+    var emails = [];
     mongodb.then((mongodb) {
       var postColl = mongodb.collection(collectionName);
 
       // Find all posts but exclude _id from the results
       postColl.find(where.excludeFields(["_id"])).toList().then((data) {
+        data.forEach((m){
+          emails.add(m['email']);
+        });
+        //TODO add a link or something, make the words better perhaps?
+        send_emails(
+          emails,
+          'It has begun!',
+          'The Kickstarter for Learning How to Program using Unreal and Skookum has started!');
         log.info("Got ${data.length} email(s)");
         close(data);
       }).catchError((e) {
@@ -29,6 +38,7 @@ class Handlers extends Vane {
       log.warning("Unable to get email(s): ${e}");
       close(new List());
     });
+
     return end;
   }
 
@@ -37,7 +47,13 @@ class Handlers extends Vane {
     mongodb.then((mongodb) {
       var postColl = mongodb.collection(collectionName);
       // Insert new post with data from the pre-processed json body
-      postColl.insert(params).then((data) {
+        postColl.insert(params).then((data) {
+          send_emails(
+              [params['email']],
+              'Welcome!',
+              'You are now subscribed! You will be notified when the Kickstarter campaign has officially started.'
+          );
+          notify_new_subsciber(params['email']);
         log.info("Added email: ${params['email']}");
         close();
       }).catchError((e) {
@@ -73,7 +89,6 @@ class Handlers extends Vane {
 
     return end;
   }
-
 
 }
 
