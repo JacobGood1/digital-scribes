@@ -17,7 +17,8 @@ class Home extends Page{
       ..addBitmapData('button_news', 'resources/icon_news.svg')
       ..addBitmapData('button_tutorials', 'resources/icon_tutorials.svg')
       ..addBitmapData('button_contactUs', 'resources/icon_contactUs.svg')
-    ;
+      ..addTextureAtlas('buttom_home_idle', 'resources/sprites_button_home_idle.json',
+        TextureAtlasFormat.JSON);
 
     resourceManager.load().then((result){
       //instantiate all elements - create an abstract element tree
