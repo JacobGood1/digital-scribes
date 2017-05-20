@@ -1,8 +1,11 @@
 part of server;
 
+Map<String, String> envVars = Platform.environment;
+
+
 GmailSmtpOptions gmail = new GmailSmtpOptions()
-  ..username = 'digitalscribescompany@gmail.com'
-  ..password = '3KWV3DFJfZo1spvHuMJtijOiuN53##9oDrBN5y&t';
+  ..username = envVars['SMTP_USER']
+  ..password = envVars['SMTP_PASSWORD'];
 
 var emailTransport = new SmtpTransport(gmail);
 
