@@ -8,8 +8,10 @@ import 'package:vane/vane_server.dart';
 import 'package:shelf/shelf_io.dart' as io;
 import 'package:shelf_static/shelf_static.dart';
 import 'package:args/args.dart';
+import 'package:mailer/mailer.dart';
 
 part 'resources/handlers.dart';
+part 'resources/email.dart';
 
 
 ArgResults cmdArgs;
