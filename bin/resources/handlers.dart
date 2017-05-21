@@ -12,7 +12,7 @@ class Handlers extends Vane {
 
   String collectionName = "emails";
 
-  @Route("/api/notify_start", method: GET)
+  @Route("/api/notify_start", method: POST)
   Future notify_start() {
     var emails = [];
     mongodb.then((mongodb) {

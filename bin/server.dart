@@ -13,6 +13,7 @@ import 'package:mailer/mailer.dart';
 part 'resources/handlers.dart';
 part 'resources/email.dart';
 
+Map<String, String> envVars = Platform.environment;
 
 ArgResults cmdArgs;
 

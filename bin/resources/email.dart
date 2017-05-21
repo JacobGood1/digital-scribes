@@ -1,7 +1,5 @@
 part of server;
 
-Map<String, String> envVars = Platform.environment;
-
 
 GmailSmtpOptions gmail = new GmailSmtpOptions()
   ..username = envVars['SMTP_USER']
