@@ -15,7 +15,7 @@
 <body id="body">
 <form id="email" action=/api/add_email method="post">
     <input type="text" name="email" value="" size="20">
-    <input type="submit" value="Submit">
+    <input id="submitButton" type="submit" value="Submit">
 </form>
     <!--it seems that canvas objects are static. once created it cannot be resized? -->
     <!--due to this, create the canvas from dart! -->
@@ -26,5 +26,10 @@
     <!--<video id="htmlObjectKek" width="640" height="360" controls autoplay loop>
         <source src = "https://drive.google.com/open?id=0B9NgZZ99OM6AVnRHNWhQZm01cjQ" type = "video/mp4">
     </video>-->
+<script>
+    document.getElementById("submitButton").addEventListener("click", function(event){
+        event.preventDefault()
+    });
+</script>
 </body>
 </html>

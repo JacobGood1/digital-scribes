@@ -1,3 +1,4 @@
+import 'buttonContainer.dart';
 import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
 import 'group.dart';
@@ -65,51 +66,14 @@ class AvailableCourses extends Group {
   AvailableCourses(Page page) : super(page){
     int button_title_padding = 20;
 
-
     //elementYOffset = spaceGoblins.y + spaceGoblins.height;
 
     var background = new BitmapData(width, height, color.rgb(r: 0, g: 0, b: 0, a: 255));
     var backgroundBitmap = new Bitmap(background);
     addChild(backgroundBitmap);
 
-
-    var button_text = "<- Home";
-    var button_height = 70;
-    var button_subscribe = new TextField();
-    button_subscribe.defaultTextFormat = new TextFormat('Monda', 50, Color.GreenYellow, align: "center");
-    button_subscribe.text = button_text;// "mailing list and stay up to date with current news.";
-    button_subscribe.width = width;// = 1350;
-    button_subscribe.height = button_height;
-    button_subscribe.x = 0;
-    //textField.y = 20;
-    button_subscribe.wordWrap = false;
-    button_subscribe.filters = [
-      new GlowFilter(Color.GreenYellow, 60, 60, 5)
-    ];
-    var button_subscribe_mouseOver = new TextField();
-    button_subscribe_mouseOver.defaultTextFormat = new TextFormat('Monda', 50, Color.Cyan, align: "center");
-    button_subscribe_mouseOver.text = button_text;// "mailing list and stay up to date with current news.";
-    button_subscribe_mouseOver.x = 0;
-    //textField.y = 20;
-    button_subscribe_mouseOver.width = width;// = 1350;
-    button_subscribe_mouseOver.height = button_height;
-    button_subscribe_mouseOver.wordWrap = false;
-    button_subscribe_mouseOver.filters = [
-      new GlowFilter(Color.Cyan, 60, 60, 5)
-    ];
-
-    SimpleButton button_test = new SimpleButton(
-        button_subscribe,
-        button_subscribe_mouseOver,
-        button_subscribe_mouseOver,
-        button_subscribe
-    );
-    button_test.onMouseClick.listen((MouseEvent event){
-      html.window.location.href = 'index.html';
-    });
-
-    addChild(button_test);
-    elementYOffset += 20;
+    //navigation menu
+    addChild(new ButtonContainer(this, page));
 
     SimpleButton button_spaceGoblins = lockedButton(
         this,

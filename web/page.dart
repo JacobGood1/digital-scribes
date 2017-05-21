@@ -5,6 +5,7 @@ class Page {
   html.BodyElement body;
   html.CanvasElement canvas;
   Stage stage;
+  RenderLoop renderLoop_ = new RenderLoop();
   ResourceManager resourceManager;
   List<List<DisplayObjectContainer>> renderLayers = new List<List<DisplayObjectContainer>>();
 
@@ -17,6 +18,7 @@ class Page {
   List<DisplayObjectContainer> groups = new List<DisplayObjectContainer>();
 
   Page () {
+
     //StageXL.stageOptions.renderEngine = RenderEngine.Canvas2D;
 
     for (int i = 0; i < 3; i++){
@@ -35,6 +37,8 @@ class Page {
       //..scaleMode = StageScaleMode.NO_BORDER
       //..scaleMode = StageScaleMode.SHOW_ALL
         ;
+
+    renderLoop_.addStage(stage);
 
     body = html.querySelector('#body');
 
