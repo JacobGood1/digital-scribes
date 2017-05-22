@@ -74,20 +74,28 @@ class RecentNews extends Group {
 
     elementYOffset = textField.y + textField.height; //textField.y;*/
 
-    //kickstarter trailer video
-    html.IFrameElement kickstarterHtmlElement = html.querySelector('#kickstartertTrailer');
+    //timmysNightmare trailer video
+    //html.IFrameElement kickstarterHtmlElement = html.querySelector('#timmysNightmare');
+    html.IFrameElement video_timmysNightmare = new html.IFrameElement()
+    ..width = '640'
+    ..height = '360'
+    ..allowFullscreen = true;
+    ;
+    video_timmysNightmare.style.border = '0';
+    html.querySelector('#body').children.add(video_timmysNightmare);
+
     //https://drive.google.com/file/d/0B9NgZZ99OM6Ac0FUd0twY3RaMlU/view?usp=sharing
     //html.SourceElement kickstarterTrailer_src = new html.SourceElement();
     //kickstarterTrailer_src.src = "https://www.youtube.com/watch?v=TpUmFruoFAc";//"resources/timmy_example_website.ogv";//"resources/timmy_example_website.webm";
     //kickstarterTrailer_src.type = "video/ogg";//"video/webm";
     //kickstarterHtmlElement.controls = true;
     //kickstarterHtmlElement.append(kickstarterTrailer_src);
-    kickstarterHtmlElement.src = "https://www.youtube.com/embed/TpUmFruoFAc?controls=1";
-    var kickstarterTrailer = new HtmlObject(kickstarterHtmlElement);
-    kickstarterTrailer.x = this.width / 2 - int.parse(kickstarterHtmlElement.width) / 2;
+    video_timmysNightmare.src = "https://www.youtube.com/embed/TpUmFruoFAc?controls=1";
+    var kickstarterTrailer = new HtmlObject(video_timmysNightmare);
+    kickstarterTrailer.x = this.width / 2 - int.parse(video_timmysNightmare.width) / 2;
     kickstarterTrailer.y = elementYOffset + 50;
     addChild(kickstarterTrailer);
-    elementYOffset = kickstarterTrailer.y + int.parse(kickstarterHtmlElement.height) + 50;
+    elementYOffset = kickstarterTrailer.y + int.parse(video_timmysNightmare.height) + 50;
 
     /*var video = resourceManager.getVideo('timmy_example');//
     var videoObject = new VideoObject(video);
