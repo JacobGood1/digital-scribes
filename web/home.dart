@@ -1,9 +1,12 @@
+import 'dart:async';
 import 'package:stagexl/stagexl.dart';
 import 'page.dart';
 import 'kickstarter_advert.dart';
 import 'logo_digitalscribes.dart';
 import 'navigation.dart';
 import 'recent_news.dart';
+import 'dart:html' as html;
+import 'buffer.dart';
 
 class Home extends Page{
   Home () {
@@ -28,7 +31,19 @@ class Home extends Page{
       ..addTextureAtlas('button_subscribe_mouseOver', 'resources/atlas_button_subscribe_mouseOver.json', TextureAtlasFormat.JSONARRAY)
     ;
 
+
+
     resourceManager.load().then((result){
+      new Buffer();
+      //buffer.style.opacity = (0.5).toString();
+      /*new Future((){
+
+        buffer.style.opacity = '0.5';
+        while (opacity > 0.0) { //
+
+
+        }
+      }).then((v){buffer.remove(); print('BUFFER REMOVED');});*/
       //instantiate all elements - create an abstract element tree
       new KickstarterAdvert(this);
       new DigitalScribesLogo(this);

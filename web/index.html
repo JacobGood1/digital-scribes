@@ -9,14 +9,21 @@
     font-family: 'Monda', sans-serif;
   body { margin: 0; padding: 0; width: 100%;}
   canvas { margin: 0; padding: 0; width: 100%; display: block;}
+  #buffer {
+    top:0px;
+    z-index:1;
+    pointer-events:none;
+    margin:auto;
+  }
+  #divBuffer {
+    display:flex;
+  }
 </style>
 <!--#stage { position: absolute; width: 100%; height: 100%}-->
 <!--  width: 100%;  -->
-<body id="body">
-<form id="email" action=/api/add_email method="post">
-    <input type="text" name="email" value="" size="20">
-    <input id="submitButton" type="submit" value="Submit">
-</form>
+<body id="body" bgcolor="#000000">
+    <div id="divBuffer"><img id="buffer" src="resources/buffer.gif"></div>
+<!--<iframe name="kek" style="display:none;"></iframe>  target="kek" -->
     <!--it seems that canvas objects are static. once created it cannot be resized? -->
     <!--due to this, create the canvas from dart! -->
     <!--<canvas id="stage" width="1600" height="900"></canvas> <!--width="1600" height="900" -->
@@ -26,10 +33,5 @@
     <!--<video id="htmlObjectKek" width="640" height="360" controls autoplay loop>
         <source src = "https://drive.google.com/open?id=0B9NgZZ99OM6AVnRHNWhQZm01cjQ" type = "video/mp4">
     </video>-->
-<script>
-    document.getElementById("submitButton").addEventListener("click", function(event){
-        event.preventDefault()
-    });
-</script>
 </body>
 </html>

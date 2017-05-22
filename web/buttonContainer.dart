@@ -28,9 +28,18 @@ class ButtonContainer extends DisplayObjectContainer {
   ButtonContainer(Group group, Page page){
     juggler_ = page.stage.juggler;
 
-    SimpleButton home = simpleButton(juggler_, page, 'button_home_idle', 'button_home_mouseOver');
-    SimpleButton courses = simpleButton(juggler_, page, 'button_courses_idle', 'button_courses_mouseOver');
-    SimpleButton subscribe = simpleButton(juggler_, page, 'button_subscribe_idle', 'button_subscribe_mouseOver');
+    SimpleButton home = simpleButton(juggler_, page, 'button_home_idle', 'button_home_mouseOver')
+      ..onMouseClick.listen((MouseEvent e){
+        html.window.location.href = 'index.html';
+      });
+    SimpleButton courses = simpleButton(juggler_, page, 'button_courses_idle', 'button_courses_mouseOver')
+      ..onMouseClick.listen((MouseEvent e){
+        html.window.location.href = 'tutorials.html';
+      });
+    SimpleButton subscribe = simpleButton(juggler_, page, 'button_subscribe_idle', 'button_subscribe_mouseOver')
+      ..onMouseClick.listen((MouseEvent e){
+        html.window.location.href = 'subscribe.html';
+      });
 
     buttons = new List<SimpleButton>();
     buttons

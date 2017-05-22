@@ -4,6 +4,7 @@ import 'logo_digitalscribes.dart';
 import 'navigation_courses.dart';
 import 'courses_advert.dart';
 import 'tutorials_available_courses.dart';
+import 'buffer.dart';
 
 class Tutorials extends Page{
 
@@ -33,6 +34,7 @@ class Tutorials extends Page{
     ;
 
     resourceManager.load().then((result){
+      new Buffer();
       //instantiate all elements - create an abstract element tree
       new CoursesAdvert(this);
       new DigitalScribesLogo(this);

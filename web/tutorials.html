@@ -9,13 +9,20 @@
     font-family: 'Monda', sans-serif;
   body { margin: 0; padding: 0; width: 100%}
   canvas { margin: 0; padding: 0; width: 100%; display: block;}
+  #buffer {
+    top:0px;
+    z-index:1;
+    pointer-events:none;
+    margin:auto;
+  }
+  #divBuffer {
+    display:flex;
+  }
 </style>
-<body id="body">
+<body id="body" bgcolor="#000000">
+    <div id="divBuffer"><img id="buffer" src="resources/buffer.gif"></div>
     <script type="application/dart" src="tutorials_main.dart"></script>
     <script src="packages/browser/dart.js"></script>
-    <form id="email"> <!--action="/action_page.php"-->
-        <input type="text" name="email" value="" size="20">
-        <input type="submit" value="Submit">
-    </form>
+
 </body>
 </html>

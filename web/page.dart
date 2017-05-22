@@ -28,7 +28,9 @@ class Page {
     //!!! don't input a value for y, being 0 is a crucial factor!
     //height will be determined later by adding new elements to the stage. -------v
     canvas = new html.CanvasElement(width: html.window.innerWidth, height: 0);
-
+    canvas.style.left = '0px';
+    canvas.style.top = '0px';
+    canvas.style.position = 'absolute';
 
     stage = new Stage(canvas) //width: innerWidth, //stackHeight
       ..align = StageAlign.TOP_LEFT

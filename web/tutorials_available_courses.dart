@@ -61,7 +61,7 @@ SimpleButton lockedButton(Group group, int elementYOffset, String ingameImg, Str
 
 class AvailableCourses extends Group {
   num height = 1200;
-  num elementYOffset = 100;
+  num elementYOffset = 200;
 
   AvailableCourses(Page page) : super(page){
     int button_title_padding = 20;
@@ -104,44 +104,7 @@ class AvailableCourses extends Group {
     addChild(button_iceDrifter);
     addChild(button_timmysNightmare);
 
-    var kek = new TextField();
-    kek.defaultTextFormat = new TextFormat('Monda', 30, Color.WhiteSmoke, align: "center");
-    kek.text = "Stay up to date with the progress of Kickstarter and new courses released on Udemy by joining our mailing list!";
-    kek.width = width;
-    kek.height = 50;
-    kek.x = 0;// = (width / 2) - kek.width/2;
-    kek.y = elementYOffset + 50;//20;
-    kek.wordWrap = false;
-    elementYOffset = kek.y + kek.height;
-    addChild(kek);
 
-    html.FormElement emailHtmlElement = html.querySelector('#email');
-    var email = new HtmlObject(emailHtmlElement);
-    email.x = this.width / 2 - 150;//int.parse(email.width) / 2;
-    email.y = elementYOffset + 5;
-    addChild(email);
-    elementYOffset = email.y + email.height;//int.parse(emailHtmlElement.height) + 50;
-    var email_label = new TextField();
-    email_label.defaultTextFormat = new TextFormat('Monda', 30, Color.WhiteSmoke, align: "center");
-    email_label.text = "Email:";
-    email_label.width = 100;//width;
-    email_label.height = 50;
-    email_label.x = email.x - email_label.width - 8;// = (width / 2) - email_label.width/2;
-    email_label.y = email.y - 16;//20;
-    email_label.wordWrap = false;
-    elementYOffset = email_label.y + email_label.height;
-    addChild(email_label);
-
-    var kek2 = new TextField();
-    kek2.defaultTextFormat = new TextFormat('Monda', 30, Color.WhiteSmoke, align: "center");
-    kek2.text = "Have any questions? Feel free to contact us at digitalscribes@forgot.com";
-    kek2.width = width;
-    kek2.height = 50;
-    kek2.x = 0;// = (width / 2) - kek2.width/2;
-    kek2.y = elementYOffset + 50;//20;
-    kek2.wordWrap = false;
-    elementYOffset = kek2.y + kek2.height;
-    addChild(kek2);
 
     height = elementYOffset;// + 10;
     super.setupPosition();
