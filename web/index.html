@@ -18,12 +18,27 @@
   #divBuffer {
     display:flex;
   }
+  a {
+    z-index:1;
+    margin:auto;
+    top:0px;
+  }
+  a:link{
+    color:white;
+
+    text-decoration: none;
+  }
+  a:hover {
+    color:red;
+
+    text-decoration: none;
+}
 </style>
 <!--#stage { position: absolute; width: 100%; height: 100%}-->
 <!--  width: 100%;  -->
 <body id="body" bgcolor="#000000">
     <div id="divBuffer"><img id="buffer" src="resources/buffer.gif"></div>
-<!--<iframe name="kek" style="display:none;"></iframe>  target="kek" -->
+<!--<iframe name="i" style="display:none;"></iframe>  target="i" -->
     <!--it seems that canvas objects are static. once created it cannot be resized? -->
     <!--due to this, create the canvas from dart! -->
     <!--<canvas id="stage" width="1600" height="900"></canvas> <!--width="1600" height="900" -->

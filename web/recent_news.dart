@@ -7,6 +7,7 @@ import 'page.dart';
 class RecentNews extends Group {
   num height = 1200;
   num elementYOffset = 0;
+  num skookumButtonPosition = 0;
   final String text1 =
   '''
   We are currently in the process of developing a complete course on Udemy,
@@ -17,11 +18,14 @@ class RecentNews extends Group {
 
   final String text2 =
   '''
-  In this course, you will learn how to program by developing a 2D platformer called 'Timmy's Nightmare',
+  In this course, you will learn how to program by developing a 2D platformer called "Timmy's Nightmare",
   using a powerful game engine known as the Unreal Engine 4.
 
-  You will develop this game using the one and only scripting language available for Unreal Engine 4.
-  This scripting language was designed from the ground up with the intentions of being specifically designed for games!
+  You will develop this game using SkookumScript. 
+  SkookumScript is the one and only scripting language available for Unreal Engine 4.
+  SkookumScript was designed specifically for the real-time interactive nature of games!
+  
+  Check out SkookumScript here.
   ''';
 
   RecentNews(Page page) : super(page){
@@ -54,8 +58,8 @@ class RecentNews extends Group {
     css.color = 'white';
     css.textAlign = 'center';
     //inject text
-    String kek = "Test text...";
-    html.Text testtext = new html.Text(kek);
+    String i = "Test text...";
+    html.Text testtext = new html.Text(i);
     html.ParagraphElement divElement = new html.ParagraphElement();
 
     divElement.append(testtext);
@@ -102,12 +106,48 @@ class RecentNews extends Group {
     textField2.text = text2;
     textField2.y = elementYOffset;
     textField2.width = width;//1500;
-    textField2.height = 300;
+    textField2.height = 350;
     textField2.x = width / 2 - textField2.width / 2;
     //textField.wordWrap = true;
     addChild(textField2);
 
     elementYOffset = textField2.y + textField2.height; //textField.y;
+
+    //elementYOffset += 5;
+    //injectHtml(0);
+
+    Bitmap logo_skookumScript = new Bitmap(page.resourceManager.getBitmapData('logo_skookumScript'));
+    //logo_skookumScript.scaleX = 0.3;
+    //logo_skookumScript.scaleY = 0.3;
+    SimpleButton button_skooumScript = new SimpleButton(
+        logo_skookumScript,
+        logo_skookumScript,
+        logo_skookumScript,
+        logo_skookumScript
+    );
+    button_skooumScript.scaleX = 0.3;
+    button_skooumScript.scaleY = 0.3;
+    button_skooumScript.onMouseOver.listen((Event event){
+      button_skooumScript.scaleX = 0.45;
+      button_skooumScript.scaleY = 0.45;
+      button_skooumScript.x = this.width / 2 - button_skooumScript.width / 2;
+      button_skooumScript.y = skookumButtonPosition - button_skooumScript.height / 2;
+    });
+    button_skooumScript.onMouseOut.listen((Event event){
+      button_skooumScript.scaleX = 0.3;
+      button_skooumScript.scaleY = 0.3;
+      button_skooumScript.x = this.width / 2 - button_skooumScript.width / 2;
+      button_skooumScript.y = skookumButtonPosition - button_skooumScript.height / 2;
+    });
+    button_skooumScript.onMouseClick.listen((Event event){
+      html.window.location.href = 'http://skookumscript.com/';
+    });
+    addChild(button_skooumScript);
+    button_skooumScript.x = this.width / 2 - button_skooumScript.width / 2;
+    button_skooumScript.y = elementYOffset;
+    //save the position of the button, this is needed for the button's animation.
+    skookumButtonPosition = elementYOffset + button_skooumScript.height / 2;
+    elementYOffset = button_skooumScript.y + button_skooumScript.height + 50;
 
     Bitmap timmysNightmare_title = new Bitmap(page.resourceManager.getBitmapData('timmysNightmare_Title'));
     addChild(timmysNightmare_title);
@@ -144,5 +184,19 @@ class RecentNews extends Group {
     //height = videoObject.y + videoObject.height;//elementYOffset + videoObject.y;// + videoObject.height;//textField.y + textField.height;
     height = elementYOffset + timmyExample_videoObj.height;// + 10;
     super.setupPosition();
+  }
+
+  void injectHtml(int x){
+    /*html.DivElement skookumDiv = new html.DivElement()
+    ..
+    ;*/
+    html.AnchorElement skookumLink = new html.AnchorElement()
+    ..href = "http://skookumscript.com/"
+    //..style.top = '0px'//elementYOffset.toString()
+    //..style.zIndex = '1'
+    ..innerHtml = "SkookumScript"
+    ;
+    html.querySelector('#body').children.add(skookumLink);
+    //elementYOffset += int.parse(skookumLink.style.height);
   }
 }

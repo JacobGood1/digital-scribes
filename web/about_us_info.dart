@@ -29,16 +29,16 @@ class AboutUsInfo extends Group {
 
     elementYOffset = textField.y + textField.height;*/ //textField.y;
 
-    var kek = new TextField();
-    kek.defaultTextFormat = new TextFormat('Monda', 30, Color.WhiteSmoke, align: "center");
-    kek.text = "Stay up to date with the progress of Kickstarter and new courses released on Udemy by joining our mailing list!";
-    kek.width = width;
-    kek.height = 50;
-    kek.x = 0;// = (width / 2) - kek.width/2;
-    kek.y = elementYOffset;//20;
-    kek.wordWrap = false;
-    elementYOffset = kek.y + kek.height;
-    addChild(kek);
+    var label1 = new TextField();
+    label1.defaultTextFormat = new TextFormat('Monda', 30, Color.WhiteSmoke, align: "center");
+    label1.text = "Stay up to date with the progress of the Kickstarter and new courses released on Udemy by joining our mailing list!";
+    label1.width = width;
+    label1.height = 50;
+    label1.x = 0;// = (width / 2) - i.width/2;
+    label1.y = elementYOffset;//20;
+    label1.wordWrap = false;
+    elementYOffset = label1.y + label1.height;
+    addChild(label1);
 
     html.DivElement divEmail = html.querySelector('#divEmail');
     var divEmailObject = new HtmlObject(divEmail);
@@ -65,15 +65,15 @@ class AboutUsInfo extends Group {
     });
 
 
-    var kek2 = new TextField();
-    kek2.defaultTextFormat = new TextFormat('Monda', 30, Color.WhiteSmoke, align: "center");
-    kek2.text = "Have any questions? Feel free to contact us at digitalscribes@forgot.com";
-    kek2.width = width;
-    kek2.height = 50;
-    kek2.x = 0;// = (width / 2) - kek2.width/2;
-    kek2.y = elementYOffset + 5;//20;
-    kek2.wordWrap = false;
-    elementYOffset = kek2.y + kek2.height;
+    var label2 = new TextField();
+    label2.defaultTextFormat = new TextFormat('Monda', 30, Color.WhiteSmoke, align: "center");
+    label2.text = "Have any questions? Feel free to contact us at digitalscribescompany@gmail.com";
+    label2.width = width;
+    label2.height = 50;
+    label2.x = 0;// = (width / 2) - i.width/2;
+    label2.y = elementYOffset + 5;//20;
+    label2.wordWrap = false;
+    elementYOffset = label2.y + label2.height;
 
 
     html.InputElement submitButton = html.querySelector('#submitButton');
@@ -94,8 +94,8 @@ class AboutUsInfo extends Group {
         formEmail.style.fontSize = '350%';
         formEmail.style.color = '#99ff99';
         divEmailObject.x = this.width / 2 - divEmail.clientWidth / 2;//int.parse(divEmailObject.width) / 2;
-        //divEmailObject.y = kek.y + kek.height + 50;//kek.y + (kek2.y - ((kek.y + kek.height)) / 2);//elementYOffset + 5;
-        divEmailObject.y = (kek.y + kek.height + ((kek2.y - (kek.y + kek.height)) / 2));//elementYOffset + 5;
+        //divEmailObject.y = i.y + i.height + 50;//i.y + (i.y - ((i.y + i.height)) / 2);//elementYOffset + 5;
+        divEmailObject.y = (label1.y + label1.height + ((label2.y - (label1.y + label1.height)) / 2));//elementYOffset + 5;
 
         //html.LabelElement success = new Element.html('SUCCESS!');
         //formEmail.children.add(success);
@@ -118,7 +118,7 @@ class AboutUsInfo extends Group {
     addChild(email_label);*/
 
 
-    addChild(kek2);
+    addChild(label2);
 
     height = elementYOffset;// + 10;
     super.setupPosition();
