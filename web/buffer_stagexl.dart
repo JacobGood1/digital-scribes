@@ -70,10 +70,11 @@ class BufferStageXL {
     }
   }
   void _update2(num time){
+
     buffer.id = 'buffer_stageXL';
-    buffer.style.opacity = '1.0';
+    //buffer.style.opacity = '1.0';
     buffer.style.width = 'auto';
-    buffer.style.height = height.toString() + 'px';
+    buffer.style.height = (page.canvas.height * 0.16).toString() + 'px';//height.toString() + 'px';
     buffer.style.position = 'absolute';
     //buffer.style.margin = 'auto';
     buffer.style.pointerEvents = 'none';
@@ -84,7 +85,7 @@ class BufferStageXL {
     buffer.style.top = (page.canvas.height * 0.5 - buffer.height / 2).toString() + 'px';
     buffer.style.visibility='visible';
     if (opacity > 0.0) {
-      html.window.animationFrame.then(_update);
+      html.window.animationFrame.then(_update2);
     }
   }
 }
