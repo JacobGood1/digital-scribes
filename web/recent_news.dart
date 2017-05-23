@@ -3,6 +3,7 @@ import 'package:stagexl/stagexl.dart';
 import 'group.dart';
 import 'color.dart' as color;
 import 'page.dart';
+import 'buffer_stagexl.dart';
 
 class RecentNews extends Group {
   num height = 1200;
@@ -82,8 +83,8 @@ class RecentNews extends Group {
     ..allowFullscreen = true;
     ;
     video_timmysNightmare.style.border = '0';
-    html.querySelector('#body').children.add(video_timmysNightmare);
 
+    html.querySelector('#body').children.add(video_timmysNightmare);
     //https://drive.google.com/file/d/0B9NgZZ99OM6Ac0FUd0twY3RaMlU/view?usp=sharing
     //html.SourceElement kickstarterTrailer_src = new html.SourceElement();
     //kickstarterTrailer_src.src = "https://www.youtube.com/watch?v=TpUmFruoFAc";//"resources/timmy_example_website.ogv";//"resources/timmy_example_website.webm";
@@ -95,6 +96,7 @@ class RecentNews extends Group {
     kickstarterTrailer.x = this.width / 2 - int.parse(video_timmysNightmare.width) / 2;
     kickstarterTrailer.y = elementYOffset + 50;
     addChild(kickstarterTrailer);
+
     elementYOffset = kickstarterTrailer.y + int.parse(video_timmysNightmare.height) + 50;
 
     /*var video = resourceManager.getVideo('timmy_example');//
@@ -192,6 +194,7 @@ class RecentNews extends Group {
     //height = videoObject.y + videoObject.height;//elementYOffset + videoObject.y;// + videoObject.height;//textField.y + textField.height;
     height = elementYOffset + timmyExample_videoObj.height;// + 10;
     super.setupPosition();
+    new BufferStageXL(page, this, video_timmysNightmare, kickstarterTrailer, kickstarterTrailer.x, kickstarterTrailer.y, 200);
   }
 
   void injectHtml(int x){
