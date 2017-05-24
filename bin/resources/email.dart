@@ -1,8 +1,9 @@
 part of server;
 
+
 GmailSmtpOptions gmail = new GmailSmtpOptions()
-  ..username = 'digitalscribescompany@gmail.com'
-  ..password = '3KWV3DFJfZo1spvHuMJtijOiuN53##9oDrBN5y&t';
+  ..username = envVars['SMTP_USER']
+  ..password = envVars['SMTP_PASSWORD'];
 
 var emailTransport = new SmtpTransport(gmail);
 
@@ -19,6 +20,8 @@ send_emails(List<String> emails, String subject, String body){
           ..text = body
     );
   });
+
+
 
   envelopes.forEach((e){
     emailTransport.send(e)

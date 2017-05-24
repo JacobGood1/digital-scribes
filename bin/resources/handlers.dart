@@ -6,42 +6,11 @@ Future shelfStatic(HttpRequest request) {
   io.handleRequest(request, createStaticHandler(cmdArgs['static'], defaultDocument: 'index.html'));
 }
 
-class Handlers extends Vane {
+class ClientHandlers extends Vane {
 
-  var pipeline = [Log, Cors, This];
+  var pipeline = [AuthPostsFromClient,Log, Cors, This];
 
   String collectionName = "emails";
-
-  @Route("/api/notify_start", method: GET)
-  Future notify_start() {
-    var emails = [];
-    mongodb.then((mongodb) {
-      var postColl = mongodb.collection(collectionName);
-
-      // Find all posts but exclude _id from the results
-      postColl.find(where.excludeFields(["_id"])).toList().then((data) {
-        data.forEach((m){
-          emails.add(m['email']);
-        });
-        //TODO add a link or something, make the words better perhaps?
-        send_emails(
-          emails,
-          'It has begun!',
-          'The Kickstarter for Learning How to Program using Unreal and Skookum has started!');
-        log.info("Got ${data.length} email(s)");
-        close(data);
-      }).catchError((e) {
-        log.warning("Unable to get email(s): ${e}");
-        close(new List());
-      });
-    }).catchError((e) {
-      log.warning("Unable to get email(s): ${e}");
-      close(new List());
-    });
-
-    return end;
-  }
-
   @Route("/api/add_email", method: POST)
   Future add_email() {
     mongodb.then((mongodb) {
@@ -68,6 +37,45 @@ class Handlers extends Vane {
     return end;
   }
 
+
+
+}
+
+class ProtectedRoutes extends Vane {
+  var pipeline = [AuthPostsFromTerminal,Log, Cors, This];
+
+  String collectionName = "emails";
+
+  @Route("/api/notify_start", method: POST)
+  Future notify_start() {
+    var emails = [];
+    mongodb.then((mongodb) {
+      var postColl = mongodb.collection(collectionName);
+
+      // Find all posts but exclude _id from the results
+      postColl.find(where.excludeFields(["_id"])).toList().then((data) {
+        data.forEach((m){
+          emails.add(m['email']);
+        });
+        //TODO add a link or something, make the words better perhaps?
+        send_emails(
+            emails,
+            'It has begun!',
+            'The Kickstarter for Learning How to Program using Unreal and Skookum has started!');
+        log.info("Got ${data.length} email(s)");
+        close(data);
+      }).catchError((e) {
+        log.warning("Unable to get email(s): ${e}");
+        close(new List());
+      });
+    }).catchError((e) {
+      log.warning("Unable to get email(s): ${e}");
+      close(new List());
+    });
+
+    return end;
+  }
+
   /// Remove all posts in collection "posts"
   @Route("/api/delete_emails", method: DELETE)
   Future delete_emails() {
@@ -89,6 +97,32 @@ class Handlers extends Vane {
 
     return end;
   }
-
 }
+
+class AuthPostsFromTerminal extends Vane {
+  Future main() {
+    var secretToken = envVars['AUTH_TOKEN'];
+    if(secretToken == req.headers.value("pwd")) {
+      return next();
+    } else {
+      writeln("Unauthorized");
+      return close();
+    }
+  }
+}
+
+class AuthPostsFromClient extends Vane {
+  Future main() {
+    var secretToken = envVars['AUTH_CLIENT'];
+    if(secretToken == envVars['AUTH_TOKEN'] + envVars['CLIENT_TOKEN']) {
+      log.info("here");
+      return next();
+    } else {
+      writeln("Unauthorized");
+      return close();
+    }
+  }
+}
+
+
 
