@@ -80,13 +80,14 @@ class AboutUsInfo extends Group {
     submitButton.onMouseUp.listen((Event){
       if (email.value == emailConfirm.value && email.value.length > 0) {
         //send email to server!
-        html.FormElement formEmail = html.querySelector('#form');
+        html.FormElement formEmail = html.querySelector('#formEmail');
         var data = {
           'email': emailConfirm.value
         };
         HttpRequest.postFormData('/api/add_email', data);
         //formEmail.submit();
         //change form's appearance to show it has been successful
+
         email.remove();
         emailConfirm.remove();
         submitButton.remove();
