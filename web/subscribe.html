@@ -1,16 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Monda" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Digital Scribes</title>
 </head>
 <style type="text/css">
+
+    font-family: 'Monda', sans-serif;
   body { margin: 0; padding: 0; width: 100%}
   canvas { margin: 0; padding: 0; width: 100%; display: block;}
+
+  form {
+    font-family: 'Monda', sans-serif;
+    color: white;
+  }
+
+input[type=text], select {
+    font-family: 'Monda', sans-serif;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 5px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 150%
+}
+
+input[type=button] {
+    font-family: 'Monda', sans-serif;
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 150%
+}
+
+input[type=button]:hover {
+    background-color: #45a049;
+}
+
+label {
+    font-family: 'Monda', sans-serif;
+	color: white;
+	width: 100%;
+	font-size: 150%
+	padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+}
+
+#divEmail {
+    border-radius: 5px;
+    background-color: #363636;
+    padding: 20px;
+}
+#buffer {
+    top:0px;
+    z-index:1;
+    pointer-events:none;
+    margin:auto;
+  }
+  #divBuffer {
+    display:flex;
+  }
+
 </style>
 <!--#stage { position: absolute; width: 100%; height: 100%}-->
 <!--  width: 100%;  -->
-<body id="body">
+<body id="body" bgcolor="#000000">
+    <div id="divBuffer"><img id="buffer" src="resources/buffer.gif"></div>
+<!--<div id="div">
+    <form id="form" action=/api/add_email method="post">
+        <input type="text" id="email" value="" placeholder="Email..">
+        <input type="text" id="emailConfirm" value="" placeholder="Confirm Email..">
+        <input id="submitButton" type="button" value="Submit">
+    </form>
+</div>-->
 <!--it seems that canvas objects are static. once created it cannot be resized? -->
 <!--due to this, create the canvas from dart! -->
 <!--<canvas id="stage" width="1600" height="900"></canvas> <!--width="1600" height="900" -->
