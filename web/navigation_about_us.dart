@@ -44,8 +44,4 @@ class NavigationAboutUs extends Group {
     addChild(buttonContainer);
     super.setupPosition();
   }
-
-  //are these automatically generated?
-  //get width => width;
-  //set width (num width) => this.width = width;
 }

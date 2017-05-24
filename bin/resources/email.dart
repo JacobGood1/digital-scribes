@@ -21,6 +21,8 @@ send_emails(List<String> emails, String subject, String body){
     );
   });
 
+
+
   envelopes.forEach((e){
     emailTransport.send(e)
         .then((envelope) => print('Email sent!'))

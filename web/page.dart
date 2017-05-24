@@ -5,6 +5,7 @@ class Page {
   html.BodyElement body;
   html.CanvasElement canvas;
   Stage stage;
+  RenderLoop renderLoop_ = new RenderLoop();
   ResourceManager resourceManager;
   List<List<DisplayObjectContainer>> renderLayers = new List<List<DisplayObjectContainer>>();
 
@@ -17,6 +18,7 @@ class Page {
   List<DisplayObjectContainer> groups = new List<DisplayObjectContainer>();
 
   Page () {
+
     //StageXL.stageOptions.renderEngine = RenderEngine.Canvas2D;
 
     for (int i = 0; i < 3; i++){
@@ -26,7 +28,9 @@ class Page {
     //!!! don't input a value for y, being 0 is a crucial factor!
     //height will be determined later by adding new elements to the stage. -------v
     canvas = new html.CanvasElement(width: html.window.innerWidth, height: 0);
-
+    canvas.style.left = '0px';
+    canvas.style.top = '0px';
+    canvas.style.position = 'absolute';
 
     stage = new Stage(canvas) //width: innerWidth, //stackHeight
       ..align = StageAlign.TOP_LEFT
@@ -35,6 +39,8 @@ class Page {
       //..scaleMode = StageScaleMode.NO_BORDER
       //..scaleMode = StageScaleMode.SHOW_ALL
         ;
+
+    renderLoop_.addStage(stage);
 
     body = html.querySelector('#body');
 
