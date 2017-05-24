@@ -8,16 +8,18 @@ import 'package:vane/vane_server.dart';
 import 'package:shelf/shelf_io.dart' as io;
 import 'package:shelf_static/shelf_static.dart';
 import 'package:args/args.dart';
+import 'package:mailer/mailer.dart';
 
 part 'resources/handlers.dart';
+part 'resources/email.dart';
 
+Map<String, String> envVars = Platform.environment;
 
 ArgResults cmdArgs;
 
 void main(List<String> args) {
   // Create args parser
   var parser = new ArgParser();
-
   // Get static dir as argument
   parser.addOption('static', defaultsTo: 'web');
 
