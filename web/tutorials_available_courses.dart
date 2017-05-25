@@ -59,16 +59,6 @@ SimpleButton lockedButton(Group group, int elementYOffset, String ingameImg, Str
   return button;
 }
 
-void submitForm() { //Event e
-  //e.preventDefault();
-  var request = new html.HttpRequest();
-  request.onReadyStateChange.listen((html.ProgressEvent e){});
-  var url = 'http://127.0.0.1:8080';
-  request.open('POST', url);
-  request.send('hello');
-}
-void kekk(Event e){}
-
 class AvailableCourses extends Group {
   num height = 1200;
   num elementYOffset = 200;
@@ -114,12 +104,7 @@ class AvailableCourses extends Group {
     addChild(button_iceDrifter);
     addChild(button_timmysNightmare);
 
-
-
     height = elementYOffset;// + 10;
     super.setupPosition();
-
-    submitForm();
-
   }
 }
