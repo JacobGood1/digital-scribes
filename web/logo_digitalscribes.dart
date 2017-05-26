@@ -32,7 +32,9 @@ class DigitalScribesLogo extends Group{
     juggler.add(flipBook);
     height = flipBook.height;*/
 
-    var digitalScribes_logo_video = page.resourceManager.getVideo('digitalScribes_logo'); //digitalScribes_logo
+
+    //TODO - converting video to gifs
+    /*var digitalScribes_logo_video = page.resourceManager.getVideo('digitalScribes_logo'); //digitalScribes_logo
     digitalScribes_logo_video.loop = true;
     digitalScribes_logo_video.play();
     var digitalScbribes_logo_vidObj = new VideoObject(digitalScribes_logo_video);
@@ -46,7 +48,7 @@ class DigitalScribesLogo extends Group{
 
       new AlphaMaskFilter(page.resourceManager.getBitmapData('digitalScribes_logo_mask'))
       //new ChromaKeyFilter(backgroundColor: color.rgb(r: 0, b: 0, g: 255, a: 255), solidThreshold: 140, invisibleThreshold: 20)
-    ];
+    ];*/
     //digitalScbribes_logo_vidObj.scaleY = -1;
 
 
@@ -73,7 +75,7 @@ class DigitalScribesLogo extends Group{
       ;
     shape.applyCache(x, y, width, height);
     addChild(shape);
-    addChild(digitalScbribes_logo_vidObj);
+    //addChild(digitalScbribes_logo_vidObj);
     //addChild(videoObject);
     //flipBook.addTo(this);
 

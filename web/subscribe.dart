@@ -1,7 +1,7 @@
 import 'dart:html';
 import 'package:stagexl/stagexl.dart';
 import 'page.dart';
-import 'about_us_advert.dart';
+import 'about_us_img.dart';
 import 'about_us_info.dart';
 import 'logo_digitalscribes.dart';
 import 'navigation.dart';
@@ -13,9 +13,9 @@ import 'buffer.dart';
 class Subscribe extends Page{
   Subscribe () {
     resourceManager = new ResourceManager()
-      ..addBitmapData('kickstarter_advert', 'resources/udemy_kickstarter_ue4.png')
-      ..addBitmapData('plan', 'resources/planOfAction.png')
-      ..addBitmapData('timmysNightmare_Title', 'resources/title_timmysNightmare.png')
+      //..addBitmapData('kickstarter_img', 'resources/udemy_kickstarter_ue4.png')
+      //..addBitmapData('plan', 'resources/planOfAction.png')
+      //..addBitmapData('timmysNightmare_Title', 'resources/title_timmysNightmare.png')
     //..addVideo('timmy_example', 'resources/timmy_example_website.ogg')
     //..addVideo('kickstarterTrailer', 'resources/trailer_4_final_TEST_ogg_.ogg')
       ..addVideo('digitalScribes_logo', 'resources/digitalScribes_logo.mp4')
@@ -36,10 +36,10 @@ class Subscribe extends Page{
 
         ;
     resourceManager.load().then((result){
-      new Buffer();
+
 
       //instantiate all elements - create an abstract element tree
-      new AboutUsAdvert(this);
+      new AboutUsImg(this);
       new DigitalScribesLogo(this);
       new Navigation(this);
       new AboutUsInfo(this);
@@ -49,6 +49,8 @@ class Subscribe extends Page{
       //an abstract element tree has been created, use that information and add all elements to the stage.
       addToStage();
       finalizeCanvasDimensions();
+
+      new Buffer();
     });
   }
 }
