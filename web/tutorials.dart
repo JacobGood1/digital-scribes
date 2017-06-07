@@ -11,8 +11,6 @@ class Tutorials extends Page{
   Tutorials () {
     resourceManager = new ResourceManager()
       ..addBitmapData('courses_logo', 'resources/courses_logo.png')
-      ..addBitmapData('button_home', 'resources/icon_home.svg')
-      ..addBitmapData('button_contact_us', 'resources/icon_contactUs.svg')
       ..addVideo('digitalScribes_logo', 'resources/digitalScribes_logo.mp4')
       ..addBitmapData('digitalScribes_logo_mask', 'resources/digitalScribes_logo_mask.png')
       ..addBitmapData('button_ingameImg_spaceGoblins', 'resources/course_button_ingameImg_spaceGoblins.png')
