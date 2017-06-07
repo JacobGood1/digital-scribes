@@ -10,7 +10,7 @@ class Page {
   List<List<DisplayObjectContainer>> renderLayers = new List<List<DisplayObjectContainer>>();
 
   //used for when the website is rescaled.
-  var canvasHeight = 0;
+  var canvasHeight = 1;
   var canvasWidth = html.window.innerWidth;
   //small buffer due to float rounding to int when height / width conversion happens.
   var canvasHeightBuffer = 10;

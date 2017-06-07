@@ -4,7 +4,7 @@ import 'color.dart' as color;
 import 'page.dart';
 
 class DigitalScribesLogo extends Group{
-  num height;
+  num height = 1;
   //Juggler juggler;
   //List bitmapDatas;
 
@@ -33,8 +33,7 @@ class DigitalScribesLogo extends Group{
     height = flipBook.height;*/
 
 
-    //TODO - converting video to gifs
-    /*var digitalScribes_logo_video = page.resourceManager.getVideo('digitalScribes_logo'); //digitalScribes_logo
+    var digitalScribes_logo_video = page.resourceManager.getVideo('digitalScribes_logo'); //digitalScribes_logo
     digitalScribes_logo_video.loop = true;
     digitalScribes_logo_video.play();
     var digitalScbribes_logo_vidObj = new VideoObject(digitalScribes_logo_video);
@@ -48,7 +47,7 @@ class DigitalScribesLogo extends Group{
 
       new AlphaMaskFilter(page.resourceManager.getBitmapData('digitalScribes_logo_mask'))
       //new ChromaKeyFilter(backgroundColor: color.rgb(r: 0, b: 0, g: 255, a: 255), solidThreshold: 140, invisibleThreshold: 20)
-    ];*/
+    ];
     //digitalScbribes_logo_vidObj.scaleY = -1;
 
 

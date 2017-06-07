@@ -4,7 +4,7 @@ import 'group.dart';
 import 'page.dart';
 
 class AboutUsImg extends Group {
-  num height = 1080/2;
+  num height = 1080~/2;
 
   AboutUsImg(Page page) : super(page) {
     renderLayer = 0;

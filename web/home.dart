@@ -15,7 +15,7 @@ class Home extends Page{
       ..addBitmapData('kickstarter_img', 'resources/udemy_kickstarter_ue4.png')
       ..addBitmapData('plan', 'resources/planOfAction.png')
       ..addBitmapData('timmysNightmare_Title', 'resources/title_timmysNightmare.png')
-      //..addVideo('digitalScribes_logo', 'resources/digitalScribes_logo.mp4')
+      ..addVideo('digitalScribes_logo', 'resources/digitalScribes_logo.mp4')
       ..addBitmapData('digitalScribes_logo_mask', 'resources/digitalScribes_logo_mask.png')
       ..addVideo('timmy_example', 'resources/timmy_example.mp4')
       ..addBitmapData('logo_skookumScript', 'resources/logo_skookumScript.png')

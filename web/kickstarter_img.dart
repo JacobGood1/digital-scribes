@@ -4,7 +4,7 @@ import 'group.dart';
 import 'page.dart';
 
 class KickstarterImg extends Group {
-  num height = 1080/2;
+  num height = 1080~/2;
   KickstarterImg(Page page) : super(page) {
     //autoScale = false;
     //width = html.window.innerWidth;

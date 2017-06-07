@@ -7,7 +7,7 @@ import 'page.dart';
 class BufferStageXL {
   html.ImageElement buffer = new html.ImageElement(src:'resources/buffer.gif');//html.querySelector('#buffer');
   double opacity = 1.0;
-  num height;
+  num height = 0;
   HtmlObject buff;
   HtmlObject htmlObj;
   Group group;
