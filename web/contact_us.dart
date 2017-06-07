@@ -12,8 +12,6 @@ class ContactUs extends Page{
   ContactUs () {
     resourceManager = new ResourceManager()
       ..addBitmapData('digitalScribes_logo_still', 'resources/digitalScribes_logo_still.png')
-      ..addBitmapData('button_tutorials', 'resources/icon_tutorials.svg')
-      ..addBitmapData('button_home', 'resources/icon_home.svg')
       ..addVideo('digitalScribes_logo', 'resources/digitalScribes_logo.mp4')
       ..addBitmapData('digitalScribes_logo_mask', 'resources/digitalScribes_logo_mask.png')
     ;

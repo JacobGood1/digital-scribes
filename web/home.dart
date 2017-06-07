@@ -17,10 +17,7 @@ class Home extends Page{
       ..addBitmapData('timmysNightmare_Title', 'resources/title_timmysNightmare.png')
       //..addVideo('digitalScribes_logo', 'resources/digitalScribes_logo.mp4')
       ..addBitmapData('digitalScribes_logo_mask', 'resources/digitalScribes_logo_mask.png')
-      //..addVideo('timmy_example', 'resources/timmy_example.webm')
-      ..addBitmapData('button_news', 'resources/icon_news.svg')
-      ..addBitmapData('button_tutorials', 'resources/icon_tutorials.svg')
-      ..addBitmapData('button_contactUs', 'resources/icon_contactUs.svg')
+      ..addVideo('timmy_example', 'resources/timmy_example.mp4')
       ..addBitmapData('logo_skookumScript', 'resources/logo_skookumScript.png')
     //button HOME
       ..addTextureAtlas('button_home_idle', 'resources/atlas_button_home_idle.json', TextureAtlasFormat.JSONARRAY)
