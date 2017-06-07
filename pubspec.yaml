@@ -10,7 +10,7 @@ environment:
 dependencies:
   color: '2.0.0'
   shelf: '>=0.6.0 <0.7.0'
-  stagexl: '1.0.0'
+  stagexl: '1.2.0+2'
   vane: '0.8.2'
   shelf_static: '^0.2.4'
   args: '^0.13.7'
@@ -22,8 +22,13 @@ dev_dependencies:
   browser: '>=0.10.0 <0.11.0'
   dart_to_js_script_rewriter: '^1.0.1'
 
-transformers:
-- dart_to_js_script_rewriter
-- $dart2js:
-    commandLineOptions: ["--trust-type-annotations", "--trust-primitives", "--dump-info"]
-    minify: true
+#transformers:
+#- dart_to_js_script_rewriter
+#- $dart2js:
+#    commandLineOptions: ["--trust-type-annotations", "--trust-primitives", "--dump-info"]
+#    minify: true
+
+web:
+  compiler:
+    debug: dartdevc
+    release: dartdevc

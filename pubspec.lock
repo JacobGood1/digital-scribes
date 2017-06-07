@@ -258,7 +258,7 @@ packages:
       name: stagexl
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "1.2.0+2"
   stream_channel:
     description:
       name: stream_channel

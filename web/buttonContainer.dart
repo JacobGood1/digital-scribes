@@ -50,13 +50,13 @@ class ButtonContainer extends DisplayObjectContainer {
     var padding = 10.0;
     var placement = 0.0;
     var width = 0;
-   buttons.forEach((SimpleButton button){
+   buttons.forEach((DisplayObject button){
      width += button.width + padding;
    });
 
     this.x = group.width / 2 - width / 2;
 
-    buttons.forEach((SimpleButton button){
+    buttons.forEach((DisplayObject button){
       button.x += placement;
       placement += button.width + padding;
       addChild(button);
